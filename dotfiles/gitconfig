@@ -1,0 +1,23 @@
+[user]
+	name = Stephen Caudill
+	email = vox@exdolo.com
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	di = diff
+	rmall = !git ls-files --deleted|xargs git rm --cached
+[apply]
+	whitespace = nowarn
+[merge]
+	summary = true
+[mirror]
+	summary = true
+[color]
+	ui = auto
+[branch]
+	autosetupmerge = true
+[core]
+	editor = vim
+[format]
+	pretty = oneline

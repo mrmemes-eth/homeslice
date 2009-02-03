@@ -1,0 +1,3 @@
+iabbrev rdebug require 'ruby-debug'; Debugger.start; debugger
+set clipboard=exclude:.*
+nmap <silent> <F1> <Esc>:%s/\s\+$//gi<CR>

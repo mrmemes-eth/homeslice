@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+G_TITLE='Tweet! Tweet!' G_APPLICATION_ICON='Twitterrific' \
+/usr/local/bin/growl "What...
+ - are you doing?
+ - have you seen that's funny?
+ - have you learned?
+ - have you just done that's cool?
+ - question is on your mind?
+ - was the last good article you read?
+ - was your last blog post
+
+Most Importantly...
+
+  DOES ANYONE CARE?"

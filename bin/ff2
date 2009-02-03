@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+sh /Applications/firefox\ 2.app/Contents/MacOS/firefox -P ff2 &

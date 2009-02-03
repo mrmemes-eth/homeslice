@@ -1,0 +1,73 @@
+#!/usr/bin/env ruby
+
+require 'getoptlong'
+require 'uri'
+
+opts = GetoptLong.new(
+  [ '--help', '-h', GetoptLong::NO_ARGUMENT ],
+  [ '--head', '-H', GetoptLong::NO_ARGUMENT ],
+  [ '--base', '-b', GetoptLong::OPTIONAL_ARGUMENT ],
+  [ '--auth', '-a', GetoptLong::OPTIONAL_ARGUMENT ],
+  [ '--type', '-t', GetoptLong::OPTIONAL_ARGUMENT ]
+)
+
+base = 'http://localhost:8000'
+type = 'text/yaml'
+head = false
+auth = nil
+file = File.basename(__FILE__)
+usage = %[
+recurl: A Curl wrapper that makes making REST requests easy
+
+example: recurl POST /accounts \"<tag>content</tag>\" [options]
+                 ^^      ^^             ^^
+                verb    path         payload
+
+options:
+  --help  -h  Get this help
+  --head  -H  Show HTTP headers
+  --base  -b  Set the base url (defaults to http://localhost:3000)
+  --auth  -a  HTTP Basic Auth, in the Curl format: 'user:pass'
+  --type  -t  Set the content-type and accept headers (defaults to 'text/yaml')
+
+]
+
+
+opts.each do |opt, arg|
+  case opt
+  when '--help' 
+    puts usage
+    exit 0
+  when '--head' then head = true
+  when '--base' then base = arg
+  when '--auth' then auth = arg
+  when '--type' then type = arg
+  end
+end
+
+meth = ARGV.shift
+url  = ARGV.shift
+payl = ARGV.shift
+
+# bail out if the required args aren't present
+if [meth,url].any?{|v| v.nil? }
+  puts "\n #{usage}"
+  exit 1
+end
+
+curl_options = [
+  ['-H', "Accept: #{type}"],
+  ['-H', "Content-Type: #{type}"]
+]
+
+curl_options << ['-d', payl] if payl
+curl_options << ['-i', nil ] if head
+curl_options << ['-u', auth] if auth
+
+string_options = curl_options.map do |o|
+  "#{o[0]} #{o[1].dump unless o[1].nil?}"
+end.join(' ')
+
+system "curl -X #{meth} #{string_options} #{URI.join(base,url)}"
+
+exit 0

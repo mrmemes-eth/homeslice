@@ -1,0 +1,66 @@
+# path (for some reason, I can't use $PATH in the path array declaration, so 
+# I'm setting it to it's literal value of: /opt/local/bin /opt/local/sbin 
+# /usr/bin /bin /usr/sbin /sbin /usr/X11/bin)
+path=( "$HOME/bin" /usr/local/bin /usr/local/sbin /usr/local/mysql/bin /usr/local/pgsql/bin /usr/local/ec2/bin /opt/local/bin /opt/local/sbin /usr/bin /bin /usr/sbin /sbin /usr/X11/bin /usr/local/libexec/git-core )
+
+# color term
+export CLICOLOR=1
+export LSCOLORS=Dxfxcxdxbxegedabadacad
+export ZLS_COLORS=$LSCOLORS
+export TERM=xterm
+export LC_CTYPE=en_US.UTF-8
+
+# make with the nice completion
+autoload -U compinit; compinit
+
+# make with the pretty colors
+autoload colors; colors
+
+# teh opchunz
+setopt appendhistory autocd extendedglob histignoredups correctall
+
+# cdpath for places I lurk
+cdpath=(~ ~/development ~/development/jamlab ~/development/projex ~/development/hashrock ..)
+
+# prompt (if running screen, show window #)
+if [ x$WINDOW != x ]; then
+  export PS1="$WINDOW:%{${fg[yellow]}%}%~ %{${fg[white]}%}%# "
+else
+  export PS1="%{${fg[yellow]}%}%~ %{${fg[white]}%}%# "
+fi
+RPS1="%(?..{%{${fg[red]}%}%?%{${fg[white]}%}})"
+
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=10000
+
+# default apps
+(( ${+BROWSER} )) || export BROWSER='lynx'
+(( ${+PAGER} ))   || export PAGER='less'
+(( ${+EDITOR}))   || export EDITOR='vim'
+
+# just say no to zle vim mode:
+bindkey -e
+
+# aliases
+alias mv='nocorrect mv'       # no spelling correction on mv
+alias cp='nocorrect cp'
+alias mkdir='nocorrect mkdir'
+alias j=jobs
+alias ll="ls -l"
+alias l.='ls -ld .[^.]*'
+alias lsd='ls -ld *(-/DN)'
+alias md='mkdir -p'
+alias rd='rmdir'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ssp='hack && ship'
+alias less='vim -X -U /usr/local/share/vim/vim72/macros/less.vim'
+alias spec='spec -c'
+
+# hashrocket stuffs
+export HASHROCKET_DIR="$HOME/development/hashrock/"
+source "$HOME/.hash_profile_dev"
+
+

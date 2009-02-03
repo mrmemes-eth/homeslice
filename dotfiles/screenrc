@@ -1,0 +1,36 @@
+escape "^Ll"
+setenv LC_CTYPE en_US.UTF-8
+defutf8 on
+
+autodetach            on
+crlf                  off
+deflogin              off
+hardcopy_append       on
+
+startup_message       off
+vbell                 off
+
+defscrollback         10000
+silencewait           15
+
+termcapinfo xterm*|Eterm|mlterm|rxvt 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
+defhstatus "$USER@ H | #  |  t"
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{dy} %m/%d %{W}%c %{g}]'
+
+activity "%c activity -> %n%f %t"
+bell "%c bell -> %n%f %t^G"
+vbell_msg " *beep* "
+
+bind ~ activity       "%c activity -> %n%f %t"
+bind * activity       "%c activity -> %n%f %t"
+bind b eval "writebuf" "exec sh -c 'pbcopy < /tmp/screen-exchange'"
+
+# for launching some of the stuff i use most
+# bind V screen -t 'vim' 0 vim
+bind P screen -t 'psql' 0 psql -d jamlab -U pgsql
+bind C screen -t 'console' 0 ./script/console
+bind m screen -t 'server' 0 ./script/server
+bind R screen -t 'irb' 0 irb
+
+shell zsh
