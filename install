@@ -6,9 +6,12 @@ home = File.expand_path('~')
 # symlink all the files in the dotfiles dir into place
 Dir[File.join(cwd,'dotfiles','*')].each do |file|
   target = File.join(home, ".#{File.basename(file)}")
+  if File.directory?(target)
+    target = target.split('/')[0..-1]
+  end
   `ln -s #{File.expand_path(file)} #{target}`
 end
 
 #symlink in my bin dir
-`ln -s #{File.join(cwd,'bin')} #{File.join(home,'bin')}`
+`ln -s #{File.join(cwd,'bin')} #{home}`
 
