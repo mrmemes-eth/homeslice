@@ -63,4 +63,6 @@ alias spec='spec -c'
 export HASHROCKET_DIR="$HOME/development/hashrock/"
 source "$HOME/.hash_profile_dev"
 
+# ruby stuffs
+export GEM_HOME="$HOME/gems"
 
