@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'chronic'
+
+def wha?(*fuzz)
+  time = Chronic.parse(*fuzz)
+  if time.nil?
+    puts "Can't parse that shiz, yo!"
+    exit(1) 
+  else
+    end_time = time + 24*60*60
+    `git log --since="#{time}" --until="#{end_time}"`
+  end
+end
+
+puts wha?(ARGV.join(' '))
+
