@@ -1,3 +1,10 @@
-iabbrev rdebug require 'ruby-debug'; Debugger.start; debugger
+augroup RCVisual
+  autocmd GUIEnter *  set lines=42 columns=100 guioptions=egmrLtT
+augroup END
+
 set clipboard=exclude:.*
+
 nmap <silent> <F1> <Esc>:%s/\s\+$//gi<CR>
+
+iabbrev rdebug require 'ruby-debug'; Debugger.start; debugger
+
