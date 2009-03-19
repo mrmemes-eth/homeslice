@@ -1,7 +1,7 @@
 # path (for some reason, I can't use $PATH in the path array declaration, so 
 # I'm setting it to it's literal value of: /opt/local/bin /opt/local/sbin 
 # /usr/bin /bin /usr/sbin /sbin /usr/X11/bin)
-path=( "$HOME/bin" /usr/local/bin /usr/local/sbin /usr/local/mysql/bin /usr/local/pgsql/bin /usr/local/ec2/bin /opt/local/bin /opt/local/sbin /usr/bin /bin /usr/sbin /sbin /usr/X11/bin /usr/local/libexec/git-core )
+path=( "$HOME/bin" "$HOME/ruby/gems/1.8/bin/" /usr/local/bin /usr/local/sbin /usr/local/mysql/bin /usr/local/pgsql/bin /usr/local/ec2/bin /opt/local/bin /opt/local/sbin /usr/bin /bin /usr/sbin /sbin /usr/X11/bin /usr/local/libexec/git-core )
 
 # color term
 export CLICOLOR=1
@@ -64,5 +64,5 @@ export HASHROCKET_DIR="$HOME/development/hashrock/"
 source "$HOME/.hash_profile_dev"
 
 # ruby stuffs
-export GEM_HOME="$HOME/gems"
+export GEM_HOME="$HOME/ruby/gems/1.8"
 
