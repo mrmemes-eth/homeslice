@@ -19,6 +19,7 @@ if (has('gui_running'))
 endif
 
 set clipboard=exclude:.*
+set vb
 
 nmap <silent> <F1> <Esc>:%s/\s\+$//gi<CR>
 
