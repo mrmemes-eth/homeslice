@@ -60,7 +60,7 @@ alias less='vim -X -U /usr/local/share/vim/vim72/macros/less.vim'
 alias spec='spec -c'
 
 # hashrocket stuffs
-export HASHROCKET_DIR="$HOME/development/hashrock/"
+export HASHROCKET_DIR="$HOME/development/hashrock"
 source "$HOME/.hash_profile_dev"
 
 # ruby stuffs
