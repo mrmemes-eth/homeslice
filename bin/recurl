@@ -11,8 +11,8 @@ opts = GetoptLong.new(
   [ '--type', '-t', GetoptLong::OPTIONAL_ARGUMENT ]
 )
 
-base = 'http://localhost:8000'
-type = 'text/yaml'
+base = 'http://localhost:3000'
+type = 'text/xml'
 head = false
 auth = nil
 file = File.basename(__FILE__)
