@@ -3,6 +3,7 @@ filetype plugin indent on
 
 augroup RCVisual
   autocmd GUIEnter *  colorscheme vividchalk
+  autocmd GUIEnter *  set go-=T
 augroup END
 
 runtime! autoload/pathogen.vim
