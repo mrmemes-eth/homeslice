@@ -1,18 +1,68 @@
 #!/usr/bin/env ruby
 
+# TODO:
+# - Add usage
+# - Add ability to specify author
+# - Wha whole directories e.g.: wha last week -d hashrocket
+
 require 'rubygems'
 require 'chronic'
 
-def wha?(*fuzz)
-  time = Chronic.parse(*fuzz)
-  if time.nil?
-    puts "Can't parse that shiz, yo!"
-    exit(1) 
-  else
-    end_time = time + 24*60*60
-    `git log --since="#{time}" --until="#{end_time}"`
+class Wha
+  def initialize(*fuzz)
+    @options = extract_options!(fuzz).merge(:context => :past)
+    @fuzz = fuzz.join(' ')
+    raise ArgumentError.new("Can't parse that shiz, yo!") if day.nil?
+  end
+
+  def day
+    unless @fuzz.any?
+      Chronic.parse('yesterday',@options)
+    else
+      Chronic.parse(@fuzz,@options)
+    end
+  end
+
+  def next_day
+    day + 24*60*60
+  end
+
+  def extract_options!(args)
+    args.last.is_a?(Hash) ? args.pop : {}
+  end
+
+  def empty?
+    git_log.strip.empty?
+  end
+
+  def git_log
+    @log ||= unless @fuzz.any?
+      `git log --since="#{day}"`
+    else
+      `git log --since="#{day}" --until="#{next_day}"`
+    end
   end
 end
 
-puts wha?(ARGV.join(' '))
+def banner(string)
+  string = 'Today' if string.empty? || string.nil?
+  puts '-'*40
+  puts string.gsub(/\b\w/){$&.upcase}
+  puts '-'*40
+end
+
+if ARGV.join(' ').strip.downcase == 'last week'
+  %w(monday tuesday wednesday thursday friday).each do |day|
+    wha = Wha.new(day)
+    next if wha.empty?
+    banner(day)
+    puts wha.git_log
+  end
+else
+  wha = Wha.new(ARGV)
+  unless wha.empty?
+    banner(ARGV.join(' '))
+    puts wha.git_log 
+  end
+end
 
