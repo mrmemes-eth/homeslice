@@ -56,7 +56,6 @@ alias rd='rmdir'
 alias cd..='cd ..'
 alias ..='cd ..'
 alias ssp='hack && ship'
-alias less='vim -X -U /usr/local/share/vim/vim72/macros/less.vim'
 alias spec='spec -c'
 
 # hashrocket stuffs
