@@ -21,7 +21,6 @@ if (has('gui_running'))
   set guioptions=egmrLtT
   set columns=100
   set lines=42
-  set number
 endif
 
 set clipboard=exclude:.*
