@@ -26,6 +26,8 @@ endif
 
 set clipboard=exclude:.*
 set vb
+set splitbelow
+set splitright
 
 nmap <silent> <F1> <Esc>:%s/\s\+$//gi<CR>
 
