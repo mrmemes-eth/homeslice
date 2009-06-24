@@ -28,6 +28,7 @@ set clipboard=exclude:.*
 set vb
 set splitbelow
 set splitright
+set hidden
 
 nmap <silent> <F1> <Esc>:%s/\s\+$//gi<CR>
 
