@@ -6,6 +6,11 @@ augroup RCVisual
   autocmd GUIEnter *  set go-=T
 augroup END
 
+augroup mkd
+  autocmd BufRead *.md  set ai formatoptions=tcroqn2 comments=n:>
+augroup END
+
+
 runtime! autoload/pathogen.vim
 if exists("g:loaded_pathogen")
   call pathogen#runtime_append_all_bundles()
