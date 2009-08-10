@@ -41,6 +41,12 @@ class Wha
       `git log --since="#{day}" --until="#{next_day}"`
     end
   end
+
+  def messages(delimeter=';')
+    git_log.split("\n").map do |line|
+      line.gsub(/^[\da-f]+\s/i,'')
+    end.join("#{delimeter} \n")
+  end
 end
 
 def banner(string)
@@ -60,7 +66,8 @@ if ARGV.join(' ').strip.downcase == 'last week'
     wha = Wha.new(day)
     next if wha.empty?
     banner(day)
-    puts wha.git_log
+    #puts wha.git_log
+    puts wha.messages
   end
 else
   wha = Wha.new(ARGV)
