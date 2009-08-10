@@ -2,7 +2,6 @@
 
 # TODO:
 # - Add usage
-# - Add ability to specify author
 # - Wha whole directories e.g.: wha last week -d hashrocket
 
 require 'rubygems'
@@ -49,6 +48,11 @@ def banner(string)
   puts '-'*40
   puts string.gsub(/\b\w/){$&.upcase}
   puts '-'*40
+end
+
+if arg = ARGV.detect{|a| a =~ /--author/ }
+  ARGV.delete(arg)
+  ENV['GIT_AUTHOR'] = arg.split('=').last
 end
 
 if ARGV.join(' ').strip.downcase == 'last week'
