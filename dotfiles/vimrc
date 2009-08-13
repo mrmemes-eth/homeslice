@@ -34,3 +34,6 @@ nmap <silent> <F1> <Esc>:%s/\s\+$//gi<CR>
 iabbrev rdebug require 'ruby-debug'; Debugger.start; debugger
 iabbrev bound puts '*'*80
 
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
