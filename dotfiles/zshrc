@@ -76,7 +76,7 @@ alias spec='spec -c'
 # hashrocket stuffs
 HASHROCKET_DIR="$HOME/development/hashrock"
 hpd="$HOME/.hash_profile_dev"
-[[ -a hpd ]] && source hpd
+[[ -a $hpd ]] && source $hpd
 
 # ruby stuffs
 GEM_HOME="$HOME/ruby/gems/1.8"
