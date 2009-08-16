@@ -39,11 +39,11 @@ setopt appendhistory autocd extendedglob histignoredups correctall
 cdpath=(~ ~/development ~/development/hashrock ..)
 
 # prompt (if running screen, show window #)
+PS1="%{${fg[yellow]}%}%~ %{${fg[white]}%}%# "
 if [ x$WINDOW != x ]; then
-  export PS1="$WINDOW:%{${fg[yellow]}%}%~ %{${fg[white]}%}%# "
-else
-  export PS1="%{${fg[yellow]}%}%~ %{${fg[white]}%}%# "
+  PS1="$WINDOW:$PS1"
 fi
+
 RPS1="%(?..{%{${fg[red]}%}%?%{${fg[white]}%}})"
 
 # history
