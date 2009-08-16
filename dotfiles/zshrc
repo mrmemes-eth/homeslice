@@ -36,7 +36,7 @@ autoload colors; colors
 setopt appendhistory autocd extendedglob histignoredups correctall
 
 # cdpath for places I lurk
-cdpath=(~ ~/development ~/development/jamlab ~/development/projex ~/development/hashrock ..)
+cdpath=(~ ~/development ~/development/hashrock ..)
 
 # prompt (if running screen, show window #)
 if [ x$WINDOW != x ]; then
