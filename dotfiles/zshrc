@@ -38,12 +38,12 @@ setopt appendhistory autocd extendedglob histignoredups correctall
 # cdpath for places I lurk
 cdpath=(~ ~/development ~/development/hashrock ..)
 
-# prompt (if running screen, show window #)
+# prompt
 PS1="%{${fg[yellow]}%}%~ %{${fg[white]}%}%# "
-if [ x$WINDOW != x ]; then
-  PS1="$WINDOW:$PS1"
-fi
-
+# if on a remote host, show host name
+[[ -n "$SSH_CLIENT" ]] && PS1="$HOST:$PS1"
+# if running screen, show window #
+[[ x$WINDOW != x ]] && PS1="$WINDOW:$PS1"
 RPS1="%(?..{%{${fg[red]}%}%?%{${fg[white]}%}})"
 
 # history
