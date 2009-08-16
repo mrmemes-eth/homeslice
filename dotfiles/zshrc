@@ -35,7 +35,7 @@ autoload colors; colors
 # teh opchunz
 setopt appendhistory autocd extendedglob histignoredups correctall
 
-# cdpath for places I lurk
+# places I lurk
 cdpath=(~ ~/development ~/development/hashrock ..)
 
 # prompt
@@ -44,6 +44,7 @@ PS1="%{${fg[yellow]}%}%~ %{${fg[white]}%}%# "
 [[ -n "$SSH_CLIENT" ]] && PS1="$HOST:$PS1"
 # if running screen, show window #
 [[ x$WINDOW != x ]] && PS1="$WINDOW:$PS1"
+# show non success exit codes in right prompt
 RPS1="%(?..{%{${fg[red]}%}%?%{${fg[white]}%}})"
 
 # history
@@ -63,7 +64,6 @@ bindkey -e
 alias mv='nocorrect mv'       # no spelling correction on mv
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
-alias j=jobs
 alias ll="ls -l"
 alias l.='ls -ld .[^.]*'
 alias lsd='ls -ld *(-/DN)'
