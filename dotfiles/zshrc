@@ -20,11 +20,11 @@ path=(
 )
 
 # color term
-export CLICOLOR=1
-export LSCOLORS=Dxfxcxdxbxegedabadacad
-export ZLS_COLORS=$LSCOLORS
-export TERM=xterm
-export LC_CTYPE=en_US.UTF-8
+CLICOLOR=1
+LSCOLORS=Dxfxcxdxbxegedabadacad
+ZLS_COLORS=$LSCOLORS
+TERM=xterm
+LC_CTYPE=en_US.UTF-8
 
 # make with the nice completion
 autoload -U compinit; compinit
@@ -52,9 +52,9 @@ HISTSIZE=5000
 SAVEHIST=10000
 
 # default apps
-(( ${+BROWSER} )) || export BROWSER='lynx'
-(( ${+PAGER} ))   || export PAGER='less'
-(( ${+EDITOR}))   || export EDITOR='vim'
+(( ${+BROWSER} )) || BROWSER='lynx'
+(( ${+PAGER} ))   || PAGER='less'
+(( ${+EDITOR}))   || EDITOR='vim'
 
 # just say no to zle vim mode:
 bindkey -e
@@ -75,9 +75,9 @@ alias ssp='hack && ship'
 alias spec='spec -c'
 
 # hashrocket stuffs
-export HASHROCKET_DIR="$HOME/development/hashrock"
+HASHROCKET_DIR="$HOME/development/hashrock"
 source "$HOME/.hash_profile_dev"
 
 # ruby stuffs
-export GEM_HOME="$HOME/ruby/gems/1.8"
+GEM_HOME="$HOME/ruby/gems/1.8"
 
