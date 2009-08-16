@@ -39,13 +39,13 @@ setopt appendhistory autocd extendedglob histignoredups correctall
 cdpath=(~ ~/development ~/development/hashrock ..)
 
 # prompt
-PROMPT="%{${fg[yellow]}%}%~ %{${fg[white]}%}%# "
+PROMPT="%{$fg[yellow]%}%~ %{$reset_color%}%# "
 # if on a remote host, show host name
 [[ -n "$SSH_CLIENT" ]] && PROMPT="$HOST:$PROMPT"
 # if running screen, show window #
 [[ x$WINDOW != x ]] && PROMPT="$WINDOW:$PROMPT"
 # show non success exit codes in right prompt
-RPROMPT="%(?..{%{${fg[red]}%}%?%{${fg[white]}%}})"
+RPROMPT="%(?..{%{$fg[red]%}%?%{$reset_color%}})"
 
 # history
 HISTFILE=~/.zsh_history
