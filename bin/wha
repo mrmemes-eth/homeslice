@@ -10,6 +10,7 @@ require 'chronic'
 class Wha
   def initialize(*fuzz)
     @options = extract_options!(fuzz).merge(:context => :past)
+    @author = @options.delete(:author)
     @fuzz = fuzz.join(' ')
     raise ArgumentError.new("Can't parse that shiz, yo!") if day.nil?
   end
@@ -35,11 +36,10 @@ class Wha
   end
 
   def git_log
-    @log ||= unless @fuzz.any?
-      `git log --since="#{day}"`
-    else
-      `git log --since="#{day}" --until="#{next_day}"`
-    end
+    command = ["git log --since=\"#{day}\""]
+    command << "--until=\"#{next_day}\"" if @fuzz
+    command << "--author=\"#{@author}\"" if @author
+    @log ||= `#{command.join(' ')}`
   end
 
   def messages(delimeter=';')
@@ -56,24 +56,24 @@ def banner(string)
   puts '-'*40
 end
 
-if arg = ARGV.detect{|a| a =~ /--author/ }
+author = if arg = ARGV.detect{|a| a =~ /--author/ }
   ARGV.delete(arg)
-  ENV['GIT_AUTHOR'] = arg.split('=').last
+  arg.split('=').last
 end
 
 if ARGV.join(' ').strip.downcase == 'last week'
   %w(monday tuesday wednesday thursday friday).each do |day|
-    wha = Wha.new(day)
+    wha = Wha.new(day, :author => author)
     next if wha.empty?
     banner(day)
     #puts wha.git_log
     puts wha.messages
   end
 else
-  wha = Wha.new(ARGV)
+  wha = Wha.new(ARGV, :author => author)
   unless wha.empty?
     banner(ARGV.join(' '))
-    puts wha.git_log 
+    puts wha.git_log
   end
 end
 
