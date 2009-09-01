@@ -33,8 +33,8 @@ autoload -U compinit; compinit
 # make with the pretty colors
 autoload colors; colors
 
-# teh opchunz
-setopt appendhistory autocd extendedglob histignoredups correctall
+# options
+setopt appendhistory autocd extendedglob histignoredups correctall nonomatch
 
 # places I lurk
 cdpath=(~ ~/development ~/development/hashrock ..)
