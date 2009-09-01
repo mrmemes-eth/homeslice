@@ -43,7 +43,7 @@ class Wha
   end
 
   def messages(delimeter=';')
-    git_log.split("\n").map do |line|
+    git_log.split("\n").reverse.map do |line|
       line.gsub(/^[\da-f]+\s/i,'')
     end.join("#{delimeter} \n")
   end
