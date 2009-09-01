@@ -8,6 +8,7 @@ path=(
   /usr/local/sbin
   /usr/local/mysql/bin
   /usr/local/pgsql/bin
+  /usr/local/mongo/bin
   /usr/local/ec2/bin
   /opt/local/bin
   /opt/local/sbin
