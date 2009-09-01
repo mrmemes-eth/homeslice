@@ -40,7 +40,7 @@ setopt appendhistory autocd extendedglob histignoredups correctall
 cdpath=(~ ~/development ~/development/hashrock ..)
 
 # prompt
-PROMPT="%{$fg[yellow]%}%~ %{$reset_color%}%# "
+PROMPT="%{$fg[yellow]%}%2c %{$reset_color%}%# "
 # if on a remote host, show host name
 [[ -n "$SSH_CLIENT" ]] && PROMPT="$HOST:$PROMPT"
 # if running screen, show window #
