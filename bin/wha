@@ -73,7 +73,7 @@ else
   wha = Wha.new(ARGV, :author => author)
   unless wha.empty?
     banner(ARGV.join(' '))
-    puts wha.git_log
+    puts wha.messages
   end
 end
 
