@@ -83,3 +83,10 @@ hpd="$HOME/.hash_profile_dev"
 # ruby stuffs
 export GEM_HOME="$HOME/ruby/gems/1.8"
 
+twiki(){
+  say -v Zarvox 'beedee-beedee-beedee' \
+    ;  rake db:migrate \
+    && rake db:migrate:redo \
+    && rake db:test:prepare
+}
+
