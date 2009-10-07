@@ -10,6 +10,12 @@ IRB.conf[:PROMPT][:RAILS] = {
 IRB.conf[:PROMPT_MODE] = :RAILS
 
 IRB.conf[:IRB_RC] = Proc.new do
+  class ActiveRecord::Base
+    def self.describe
+      column_names.sort
+    end
+  end
+
   def sql(query)
     ActiveRecord::Base.connection.select_all(query)
   end
