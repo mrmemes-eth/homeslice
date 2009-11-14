@@ -20,5 +20,6 @@
 	autosetuprebase = always
 [core]
 	editor = vim
+	excludesfile = /Users/voxdolo/.gitignore
 [format]
 	pretty = oneline
