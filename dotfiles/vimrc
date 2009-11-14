@@ -8,7 +8,8 @@ augroup RCVisual
 augroup END
 
 augroup mkd
-  autocmd BufRead *.md  set ai formatoptions=tcroqn2 comments=n:>
+  autocmd!
+  autocmd BufRead *.md  set ai formatoptions=tcroqn2 comments=n:> tw=80 spell
 augroup END
 
 
