@@ -1,0 +1,4 @@
+.*swp
+db/production.sql*
+tags
+config/settings.yml
