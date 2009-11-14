@@ -12,6 +12,12 @@ augroup mkd
   autocmd BufRead *.md  set ai formatoptions=tcroqn2 comments=n:> tw=80 spell
 augroup END
 
+augroup php
+  autocmd!
+  autocmd FileType php  set et sw=2
+  autocmd FileType php  unlet! b:did_indent | runtime! indent/html.vim
+augroup END
+
 
 runtime! autoload/pathogen.vim
 if exists("g:loaded_pathogen")
