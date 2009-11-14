@@ -3,6 +3,7 @@
 # /usr/bin /bin /usr/sbin /sbin /usr/X11/bin)
 path=(
   "$HOME/bin"
+  "$HOME/src/homebrew/bin"
   "$HOME/ruby/gems/1.8/bin/"
   /usr/local/bin
   /usr/local/sbin
