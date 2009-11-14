@@ -17,6 +17,7 @@
 	ui = auto
 [branch]
 	autosetupmerge = true
+	autosetuprebase = always
 [core]
 	editor = vim
 [format]
