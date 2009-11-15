@@ -4,7 +4,6 @@
 path=(
   "$HOME/bin"
   "$HOME/src/homebrew/bin"
-  "$HOME/ruby/gems/1.8/bin/"
   /usr/local/bin
   /usr/local/sbin
   /usr/local/mysql/bin
@@ -80,9 +79,6 @@ alias spec='spec -c'
 export HASHROCKET_DIR="$HOME/development/hashrock"
 hpd="$HASHROCKET_DIR/dotmatrix/.hashrc"
 [[ -a $hpd ]] && source $hpd
-
-# ruby stuffs
-export GEM_HOME="$HOME/ruby/gems/1.8"
 
 twiki(){
   [[ -x `which say` ]] && say -v Zarvox 'beedee-beedee-beedee'
