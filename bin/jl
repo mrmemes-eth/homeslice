@@ -1,3 +1,0 @@
-#!/bin/zsh
-cd /Users/caudill/development/jamlab/working
-/usr/bin/screen -S JamLab -c /Users/caudill/.screenrc.jamlab
