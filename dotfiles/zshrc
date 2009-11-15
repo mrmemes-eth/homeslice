@@ -78,7 +78,7 @@ alias spec='spec -c'
 
 # hashrocket stuffs
 export HASHROCKET_DIR="$HOME/development/hashrock"
-hpd="$HOME/.hash_profile_dev"
+hpd="$HASHROCKET_DIR/dotmatrix/.hashrc"
 [[ -a $hpd ]] && source $hpd
 
 # ruby stuffs
