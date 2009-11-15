@@ -1,17 +1,30 @@
 #!/usr/bin/env ruby
 
-cwd = File.expand_path(File.dirname(__FILE__))
-home = File.expand_path('~')
-
-# symlink all the files in the dotfiles dir into place
-Dir[File.join(cwd,'dotfiles','*')].each do |file|
-  target = File.join(home, ".#{File.basename(file)}")
-  if File.directory?(target)
-    target = target.split('/')[0..-1]
-  end
-  `ln -s #{File.expand_path(file)} #{target}`
+def cwd
+  @cwd ||= File.expand_path(File.dirname(__FILE__))
 end
 
-#symlink in my bin dir
-`ln -s #{File.join(cwd,'bin')} #{home}`
+def home
+  @home ||= File.expand_path('~')
+end
+
+def install_to_home(file,sub_directory=nil)
+  dirs = [home, sub_directory, File.basename(file)].compact
+  dest = File.join(*dirs)
+  src  = File.expand_path(file)
+  if system("ln -nsf #{src} #{dest}")
+    print "successfully installed "
+  else
+    print "failed to install "
+  end
+  puts dest
+end
+
+Dir[File.join(cwd,'dotfiles','.[a-z]*')].each do |file|
+  install_to_home(file)
+end
+
+Dir[File.join(cwd,'bin','*')].each do |file|
+  install_to_home(file,'bin')
+end
 
