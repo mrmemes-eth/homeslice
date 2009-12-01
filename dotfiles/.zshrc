@@ -3,21 +3,13 @@
 # /usr/bin /bin /usr/sbin /sbin /usr/X11/bin)
 path=(
   "$HOME/bin"
-  "$HOME/src/homebrew/bin"
   /usr/local/bin
   /usr/local/sbin
-  /usr/local/mysql/bin
-  /usr/local/pgsql/bin
-  /usr/local/mongo/bin
-  /usr/local/ec2/bin
-  /opt/local/bin
-  /opt/local/sbin
   /usr/bin
   /bin
   /usr/sbin
   /sbin
   /usr/X11/bin
-  /usr/local/libexec/git-core
 )
 
 # color term
