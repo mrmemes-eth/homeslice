@@ -30,7 +30,7 @@ autoload colors; colors
 setopt appendhistory autocd extendedglob histignoredups correctall nonomatch
 
 # places I lurk
-cdpath=(~ ~/development ~/development/hashrock ..)
+cdpath=(~ ~/dev ~/dev/hashrock ..)
 
 # prompt
 PROMPT="%{$fg[yellow]%}%2c %{$reset_color%}%# "
@@ -68,7 +68,7 @@ alias ..='cd ..'
 alias spec='spec -c'
 
 # hashrocket stuffs
-export HASHROCKET_DIR="$HOME/development/hashrock"
+export HASHROCKET_DIR="$HOME/dev/hashrock"
 hpd="$HASHROCKET_DIR/dotmatrix/.hashrc"
 [[ -a $hpd ]] && source $hpd
 
