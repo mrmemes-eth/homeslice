@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require 'fileutils'
 
 def cwd
   @cwd ||= File.expand_path(File.dirname(__FILE__))
@@ -11,6 +12,7 @@ end
 def install_to_home(file,sub_directory=nil)
   dirs = [home, sub_directory, File.basename(file)].compact
   dest = File.join(*dirs)
+  FileUtils.mkdir_p(dest) unless File.exist?(dest)
   src  = File.expand_path(file)
   if system("ln -nsf #{src} #{dest}")
     print "successfully installed "
