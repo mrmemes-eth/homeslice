@@ -25,7 +25,7 @@ if exists("g:loaded_pathogen")
 end
 
 if (has('gui_running'))
-  set guifont=Inconsolata:h22
+  set guifont=Inconsolata:h18
   set guioptions=egmrLtT
   set columns=100
   set lines=42
