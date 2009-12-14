@@ -1,1 +1,1 @@
-/Users/voxdolo/development/hashrock/ops/confs/hashrocket.vim
+/Users/voxdolo/dev/hashrock/dotmatrix/.vim/plugin/hashrocket.vim
