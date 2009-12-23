@@ -29,9 +29,6 @@ autoload colors; colors
 # options
 setopt appendhistory autocd extendedglob histignoredups correctall nonomatch prompt_subst
 
-# places I lurk
-cdpath=(~ ~/dev ~/dev/hashrock ..)
-
 git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
   echo "(${ref#refs/heads/})"
@@ -72,17 +69,16 @@ alias cd..='cd ..'
 alias ..='cd ..'
 alias spec='spec -c'
 
-# hashrocket stuffs
-export HASHROCKET_DIR="$HOME/dev/hashrock"
-hpd="$HASHROCKET_DIR/dotmatrix/.hashrc"
-[[ -a $hpd ]] && source $hpd
+# personal dev env
+export DEV_DIR="$HOME/dev"
 
-twiki(){
-  [[ -x `which say` ]] && say -v Zarvox 'beedee-beedee-beedee'
-  rake db:migrate \
-  && rake db:migrate:redo \
-  && rake db:test:prepare
-}
+# hashrocket dev env
+export HASHROCKET_DIR="$DEV_DIR/hashrock"
+hrc="$HASHROCKET_DIR/dotmatrix/.hashrc"
+[[ -a $hrc ]] && source $hrc
+
+# set cd autocompletion to commonly visited directories
+cdpath=(~ $DEV_DIR $HASHROCKET_DIR ..)
 
 preview(){
   md_file="$1"
