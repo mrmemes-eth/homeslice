@@ -9,24 +9,41 @@ def home
   @home ||= File.expand_path('~')
 end
 
-def install_to_home(file,sub_directory=nil)
-  dirs = [home, sub_directory, File.basename(file)].compact
-  dest = File.join(*dirs)
-  FileUtils.mkdir_p(dest) unless File.exist?(dest)
-  src  = File.expand_path(file)
-  if system("ln -nsf #{src} #{dest}")
+def destination(file,sub_directory)
+  File.join(*[home, sub_directory, File.basename(file)].compact)
+end
+
+def install(file,sub_directory=nil)
+  file  = File.expand_path(file)
+  if system("ln -nsf #{file} #{destination(file,sub_directory)}")
     print "successfully installed "
   else
     print "failed to install "
   end
-  puts dest
+  puts file
+end
+
+def uninstall(file,sub_directory=nil)
+  file = destination(File.expand_path(file),sub_directory)
+  return puts "no file at #{file}" unless File.exist?(file)
+  if File.symlink?(file)
+    File.unlink(file)
+    puts "removed symlink at #{file}"
+  else
+    puts "could not remove non-symlink at #{file}"
+  end
+end
+
+def uninstall?
+  ARGV.include?('-u')
 end
 
 Dir[File.join(cwd,'dotfiles','.[a-z]*')].each do |file|
-  install_to_home(file)
+  uninstall? ? uninstall(file) : install(file)
 end
 
 Dir[File.join(cwd,'bin','*')].each do |file|
-  install_to_home(file,'bin')
+  bindir = File.expand_path('~/bin')
+  FileUtils.mkdir(bindir) unless File.exist?(bindir)
+  uninstall? ? uninstall(file,'bin') : install(file,'bin')
 end
-
