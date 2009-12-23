@@ -27,13 +27,18 @@ autoload -U compinit; compinit
 autoload colors; colors
 
 # options
-setopt appendhistory autocd extendedglob histignoredups correctall nonomatch
+setopt appendhistory autocd extendedglob histignoredups correctall nonomatch prompt_subst
 
 # places I lurk
 cdpath=(~ ~/dev ~/dev/hashrock ..)
 
+git_prompt_info() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo "(${ref#refs/heads/})"
+}
+
 # prompt
-PROMPT="%{$fg[yellow]%}%2c %{$reset_color%}%# "
+PROMPT='%{$fg[yellow]%}%2c%{$reset_color%}$(git_prompt_info)%# '
 # if on a remote host, show host name
 [[ -n "$SSH_CLIENT" ]] && PROMPT="$HOST:$PROMPT"
 # if running screen, show window #
