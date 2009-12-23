@@ -50,8 +50,8 @@ SAVEHIST=10000
 
 # default apps
 (( ${+BROWSER} )) || export BROWSER='lynx'
-(( ${+PAGER} ))   || export PAGER='less'
-(( ${+EDITOR}))   || export EDITOR='vim'
+(( ${+PAGER}   )) || export PAGER='less'
+(( ${+EDITOR}  )) || export EDITOR='vim'
 
 # just say no to zle vim mode:
 bindkey -e
@@ -97,4 +97,3 @@ export RIPDIR RUBYLIB PATH
 
 # rvm-install added line:
 if [[ -s /Users/voxdolo/.rvm/scripts/rvm ]] ; then source /Users/voxdolo/.rvm/scripts/rvm ; fi
-
