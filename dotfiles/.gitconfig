@@ -23,3 +23,5 @@
 	excludesfile = /Users/voxdolo/.gitignore
 [format]
 	pretty = oneline
+[push]
+	default = tracking
