@@ -46,3 +46,5 @@ match Primary /primary/
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
+nnoremap <Tab> <C-w>w
+nnoremap <S-Tab> <C-w>W
