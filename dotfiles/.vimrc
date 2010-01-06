@@ -37,8 +37,6 @@ set splitbelow
 set splitright
 set hidden
 
-nmap <silent> <F1> <Esc>:%s/\s\+$//gi<CR>
-
 iabbrev rdebug require 'ruby-debug'; Debugger.start; debugger
 iabbrev bound puts '*'*80
 
