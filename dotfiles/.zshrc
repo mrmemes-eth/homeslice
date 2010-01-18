@@ -88,12 +88,6 @@ preview(){
   open ${(j:.:)file_array}
 }
 
-# -- start rip config -- #
-RIPDIR=/Users/voxdolo/.rip
-RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
-PATH="$PATH:$RIPDIR/active/bin"
-export RIPDIR RUBYLIB PATH
-# -- end rip config -- #
 
 # rvm-install added line:
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
