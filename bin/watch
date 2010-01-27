@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require 'open-uri'
+
+unless ARGV.grep(/(-h|--help)/).empty?
+  puts "watch <watcher> <watchee> <github-token>"
+  exit 0
+end
+
+watcher = ARGV.shift
+watchee = ARGV.shift
+token   = ARGV.shift
+watched = YAML::load(open("http://github.com/api/v2/yaml/repos/watched/#{watcher}"))['repositories']
+
+YAML::load(open("http://github.com/api/v2/yaml/repos/show/#{watchee}"))['repositories'].each do |repo|
+  if watched.any?{ |watched_repo| watched_repo[:url] == repo[:url] }
+    puts "Watching #{repo[:name]}"
+  else
+    watch_uri = "http://github.com/api/v2/yaml/repos/watch/#{watchee}/#{repo[:name]}"
+    puts `curl -F 'login=#{watcher}' -F 'token=#{token}' #{watch_uri}`
+  end
+end
