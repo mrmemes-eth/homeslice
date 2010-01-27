@@ -2,7 +2,7 @@
 
 require 'open-uri'
 
-unless ARGV.grep(/(-h|--help)/).empty?
+if ARGV.grep(/(-h|--help)/).any?
   puts "watch <watcher> <watchee> <github-token>"
   exit 0
 end
