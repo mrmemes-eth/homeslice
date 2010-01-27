@@ -17,6 +17,14 @@ watchee = ARGV.shift
 token   = ARGV.shift
 watched = YAML::load(open("http://github.com/api/v2/yaml/repos/watched/#{watcher}"))['repositories']
 
+following = YAML::load(open("http://github.com/api/v2/yaml/user/show/#{watcher}/following"))['users']
+if following.include?(watchee)
+  puts "Following #{watchee}"
+else
+  follow_uri = "http://github.com/api/v2/yaml/user/follow/#{watchee}"
+  system("curl -F 'login=#{watcher}' -F 'token=#{token}' #{follow_uri}")
+end
+
 YAML::load(open("http://github.com/api/v2/yaml/repos/show/#{watchee}"))['repositories'].each do |repo|
   if repo[:fork] && no_fork
     puts "Skipping #{repo[:name]} [forked]"
@@ -26,6 +34,6 @@ YAML::load(open("http://github.com/api/v2/yaml/repos/show/#{watchee}"))['reposit
     puts "Watching #{repo[:name]}"
   else
     watch_uri = "http://github.com/api/v2/yaml/repos/watch/#{watchee}/#{repo[:name]}"
-    puts `curl -F 'login=#{watcher}' -F 'token=#{token}' #{watch_uri}`
+    system("curl -F 'login=#{watcher}' -F 'token=#{token}' #{watch_uri}")
   end
 end
