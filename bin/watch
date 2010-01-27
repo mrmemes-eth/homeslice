@@ -4,6 +4,8 @@ require 'open-uri'
 
 if ARGV.grep(/(-h|--help)/).any?
   puts "watch <watcher> <watchee> <github-token>"
+  puts "options:"
+  puts "  --help     -h  display this help"
   exit 0
 end
 
