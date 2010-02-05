@@ -3,7 +3,7 @@
 require 'open-uri'
 
 if ARGV.grep(/(-h|--help)/).any?
-  puts "watch <watcher> <watchee> <github-token> [--no-forks]"
+  puts "hubwatch <watcher> <watchee> <github-token> [--no-forks]"
   puts "options:"
   puts "  --help     -h  display this help"
   puts "  --no-forks     ignore forked repositories"
