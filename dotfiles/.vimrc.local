@@ -4,19 +4,8 @@ augroup vimrc
   autocmd GUIEnter * colorscheme vividchalk
 augroup END
 
-augroup mkd
-  autocmd!
-  autocmd BufRead *.md  set ai formatoptions=tcroqn2 comments=n:> tw=80 spell
-augroup END
-
-augroup php
-  autocmd!
-  autocmd FileType php  set et sw=2
-  autocmd FileType php  unlet! b:did_indent | runtime! indent/html.vim
-augroup END
-
 set clipboard=exclude:.*
-set vb
+set visualbell
 set splitbelow
 set splitright
 set hidden
@@ -32,3 +21,15 @@ match OverLength /\%81v.\+/
 
 nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w>W
+
+" language and extensions specific modifications
+augroup mkd
+  autocmd!
+  autocmd BufRead *.md set autoindent spell formatoptions=tcroqn2 comments=n:> textwidth=80
+augroup END
+
+augroup php
+  autocmd!
+  autocmd FileType php set expandtab shiftwidth=2
+  autocmd FileType php unlet! b:did_indent | runtime! indent/html.vim
+augroup END
