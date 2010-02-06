@@ -1,10 +1,6 @@
-syntax on
-filetype plugin indent on
-
-augroup RCVisual
+augroup vimrc
   autocmd!
-  autocmd GUIEnter *  colorscheme vividchalk
-  autocmd GUIEnter *  set go-=T
+  autocmd GuiEnter * set guifont=Inconsolata:h18 guioptions-=T columns=100 lines=42
 augroup END
 
 augroup mkd
@@ -17,19 +13,6 @@ augroup php
   autocmd FileType php  set et sw=2
   autocmd FileType php  unlet! b:did_indent | runtime! indent/html.vim
 augroup END
-
-
-runtime! autoload/pathogen.vim
-if exists("g:loaded_pathogen")
-  call pathogen#runtime_append_all_bundles()
-end
-
-if (has('gui_running'))
-  set guifont=Inconsolata:h18
-  set guioptions=egmrLtT
-  set columns=100
-  set lines=42
-endif
 
 set clipboard=exclude:.*
 set vb
