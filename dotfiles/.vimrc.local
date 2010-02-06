@@ -10,6 +10,8 @@ set splitbelow
 set splitright
 set hidden
 
+let NERDTreeHijackNetrw=0
+
 iabbrev rdebug require 'ruby-debug'; Debugger.start; debugger
 iabbrev bound puts '*'*80
 
