@@ -1,6 +1,3 @@
-# path (for some reason, I can't use $PATH in the path array declaration, so 
-# I'm setting it to it's literal value of: /opt/local/bin /opt/local/sbin 
-# /usr/bin /bin /usr/sbin /sbin /usr/X11/bin)
 path=(
   "$HOME/bin"
   /usr/local/bin
