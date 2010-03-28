@@ -66,6 +66,7 @@ alias rd='rmdir'
 alias cd..='cd ..'
 alias ..='cd ..'
 alias spec='spec -c'
+alias rsync='rsync --partial --progress'
 
 # personal dev env
 export DEV_DIR="$HOME/dev"
