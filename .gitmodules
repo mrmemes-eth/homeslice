@@ -37,3 +37,6 @@
 [submodule "dotfiles/.vimbundles/vim-unimpaired"]
 	path = dotfiles/.vimbundles/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "dotfiles/.vimbundles/vim-markdown"]
+	path = dotfiles/.vimbundles/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
