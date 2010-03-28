@@ -2,3 +2,4 @@
 db/production.sql*
 tags
 config/settings.yml
+_out
