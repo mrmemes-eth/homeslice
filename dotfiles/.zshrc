@@ -2,6 +2,7 @@ path=(
   "$HOME/bin"
   /usr/local/bin
   /usr/local/sbin
+  /opt/local/bin
   /usr/bin
   /bin
   /usr/sbin
