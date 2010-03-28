@@ -77,7 +77,7 @@ hrc="$HASHROCKET_DIR/dotmatrix/.hashrc"
 [[ -a $hrc ]] && source $hrc
 
 # set cd autocompletion to commonly visited directories
-cdpath=(~ $DEV_DIR $HASHROCKET_DIR ..)
+cdpath=(~ ~/src $DEV_DIR $HASHROCKET_DIR ..)
 
 preview(){
   md_file="$1"
