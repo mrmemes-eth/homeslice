@@ -67,6 +67,7 @@ alias cd..='cd ..'
 alias ..='cd ..'
 alias spec='spec -c'
 alias rsync='rsync --partial --progress'
+alias rake='time rake'
 
 # personal dev env
 export DEV_DIR="$HOME/dev"
