@@ -69,6 +69,10 @@ alias spec='spec -c'
 alias rsync='rsync --partial --progress'
 alias rake='time rake'
 
+# vim has made me an idiot
+alias :q='exit'
+alias :e=$EDITOR
+
 # personal dev env
 export DEV_DIR="$HOME/dev"
 
