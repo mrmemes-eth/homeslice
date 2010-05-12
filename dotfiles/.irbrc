@@ -2,8 +2,18 @@ require 'irb/completion'
 require 'irb/ext/save-history'
 require 'rubygems'
 require 'pp'
-require 'wirble'
-require 'hirb'
+
+begin
+  require 'wirble'
+rescue LoadError
+  raise 'Please install wirble'
+end
+
+begin
+  require 'hirb'
+rescue LoadError
+  raise 'Please install hirb'
+end
 
 IRB.conf[:AUTO_INDENT]  = true
 IRB.conf[:SAVE_HISTORY] = 1000
