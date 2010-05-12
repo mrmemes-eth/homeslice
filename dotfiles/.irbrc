@@ -33,6 +33,14 @@ def pb(string)
   `echo #{string}|pbcopy`
 end
 
+def update_vimbundles
+  Dir.glob("#{ENV['HOME']}/.vimbundles/*").each do |d| 
+    next unless File.directory?(d)
+    puts "updating #{d}"
+    `cd #{d}; git pull --rebase; cd -`
+  end 
+end
+
 class Object
   def native_methods
     methods - Object.new.methods
