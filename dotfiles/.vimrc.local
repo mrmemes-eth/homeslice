@@ -12,6 +12,11 @@ set splitbelow
 set splitright
 set hidden
 
+" make <Tab> characters less heinous
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
 let NERDTreeHijackNetrw=0
 
 iabbrev rdebug require 'ruby-debug'; Debugger.start; debugger
