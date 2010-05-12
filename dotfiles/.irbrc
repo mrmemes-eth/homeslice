@@ -32,3 +32,12 @@ end
 def pb(string)
   `echo #{string}|pbcopy`
 end
+
+class Object
+  def native_methods
+    methods - Object.new.methods
+  end
+  def self.native_methods
+    methods - Object.methods
+  end
+end
