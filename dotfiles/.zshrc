@@ -92,6 +92,8 @@ preview(){
   open ${(j:.:)file_array}
 }
 
+[[ -x $(whence -p fortune) ]] && print 'Kornfucius Say:' && fortune -s
+
 export RUBYOPT='rubygems'
 
 # rvm-install added line:
