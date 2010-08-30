@@ -1,0 +1,12 @@
+[[ -x $(whence -p fortune) ]] && print 'Kornfucius Say:' && fortune -s
+
+alias rsync='rsync --partial --progress'
+alias rake='time rake'
+
+# personal dev env
+export DEV_DIR="$HOME/dev"
+export HASHROCKET_DIR="$DEV_DIR/hashrock"
+[[ -a $hrc ]] && source $hrc
+
+# Have to set cdpath again to use my overrides
+cdpath=(~ ~/src $DEV_DIR $HASHROCKET_DIR ..)
