@@ -70,22 +70,20 @@ alias rd='rmdir'
 alias cd..='cd ..'
 alias ..='cd ..'
 alias spec='spec -c'
-alias rsync='rsync --partial --progress'
-alias rake='time rake'
-
-# personal dev env
-export DEV_DIR="$HOME/dev"
 
 # hashrocket dev env
-export HASHROCKET_DIR="$DEV_DIR/hashrock"
+export HASHROCKET_DIR="$HOME/hashrocket"
 hrc="$HASHROCKET_DIR/dotmatrix/.hashrc"
 [[ -a $hrc ]] && source $hrc
 
 # set cd autocompletion to commonly visited directories
 cdpath=(~ ~/src $DEV_DIR $HASHROCKET_DIR ..)
 
-[[ -x $(whence -p fortune) ]] && print 'Kornfucius Say:' && fortune -s
+# import local zsh customizations, if present
+zrcl="$HOME/.zshrc.local"
+[[ -a $zrcl ]] && source $zrcl
 
+# load from Rubygems
 export RUBYOPT='rubygems'
 
 # rvm-install added line:
