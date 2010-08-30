@@ -27,6 +27,11 @@ autoload colors; colors
 # options
 setopt appendhistory autocd extendedglob histignoredups correctall nonomatch prompt_subst
 
+# external editor support
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
 git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
   echo "(${ref#refs/heads/})"
