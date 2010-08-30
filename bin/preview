@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+file = ARGV.pop
+outfile = file.split('.')[0..-2].push('html').join('.')
+
+header = <<-HTML
+<html>
+  <head>
+    <style type='text/css'>
+      body{ width:50em; }
+      pre{ margin-left:2em; }
+    </style>
+  </head>
+  <body>
+HTML
+
+body = `maruku #{file} --html-frag -o /tmp/maruku.tempfile`
+
+footer = <<-HTML
+  </body>
+</html>
+HTML
+
+File.open(outfile,'w+') do |f|
+  f.write(header)
+  f.write(File.read('/tmp/maruku.tempfile'))
+  f.write(footer)
+end
+
+`open #{outfile}`

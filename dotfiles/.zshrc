@@ -84,14 +84,6 @@ hrc="$HASHROCKET_DIR/dotmatrix/.hashrc"
 # set cd autocompletion to commonly visited directories
 cdpath=(~ ~/src $DEV_DIR $HASHROCKET_DIR ..)
 
-preview(){
-  md_file="$1"
-  file_array=(${(s:.:)md_file})
-  file_array=($file_array[0,-2] 'html')
-  maruku $md_file
-  open ${(j:.:)file_array}
-}
-
 [[ -x $(whence -p fortune) ]] && print 'Kornfucius Say:' && fortune -s
 
 export RUBYOPT='rubygems'
