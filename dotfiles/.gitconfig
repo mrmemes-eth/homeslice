@@ -6,6 +6,7 @@
 	ci = commit
 	st = status
 	di = diff
+	logg = !git log --oneline --decorate
 	rmall = !git ls-files --deleted|xargs git rm --cached
 [apply]
 	whitespace = nowarn
