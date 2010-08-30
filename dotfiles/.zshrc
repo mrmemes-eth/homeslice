@@ -52,7 +52,6 @@ HISTSIZE=5000
 SAVEHIST=10000
 
 # default apps
-(( ${+BROWSER} )) || export BROWSER='lynx'
 (( ${+PAGER}   )) || export PAGER='less'
 (( ${+EDITOR}  )) || export EDITOR='vim'
 
