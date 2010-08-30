@@ -4,7 +4,7 @@ augroup vimrc
   autocmd GUIEnter * colorscheme peaksea
 augroup END
 
-set bg=light
+set bg=dark
 
 set clipboard=exclude:.*
 set visualbell
