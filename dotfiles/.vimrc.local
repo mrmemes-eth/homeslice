@@ -1,6 +1,6 @@
 augroup vimrc
   autocmd!
-  autocmd GuiEnter * set guifont=Inconsolata:h18 columns=100 lines=42 guioptions-=T
+  autocmd GuiEnter * set guifont=Inconsolata:h20 columns=100 lines=42 guioptions-=T
   autocmd GUIEnter * colorscheme peaksea
 augroup END
 
