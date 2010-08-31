@@ -73,15 +73,17 @@ alias spec='spec -c'
 
 # hashrocket dev env
 export HASHROCKET_DIR="$HOME/hashrocket"
-hrc="$HASHROCKET_DIR/dotmatrix/.hashrc"
-[[ -a $hrc ]] && source $hrc
-
-# set cd autocompletion to commonly visited directories
-cdpath=(~ ~/src $DEV_DIR $HASHROCKET_DIR ..)
 
 # import local zsh customizations, if present
 zrcl="$HOME/.zshrc.local"
 [[ -a $zrcl ]] && source $zrcl
+
+# import the hashrocket rc file, if present
+hrc="$HASHROCKET_DIR/dotmatrix/.hashrc"
+[[ -a $hrc ]] && source $hrc
+
+# set cd autocompletion to commonly visited directories
+cdpath=(~ ~/src $DEV_DIR $HASHROCKET_DIR)
 
 # load from Rubygems
 export RUBYOPT='rubygems'
