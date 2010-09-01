@@ -23,11 +23,7 @@ let NERDTreeHijackNetrw=0
 iabbrev rdebug require 'ruby-debug'; Debugger.start; debugger
 iabbrev bound puts '*'*80
 
-highlight Primary ctermbg=red ctermfg=white guibg=#592929
-match Primary /primary/
-
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+silent! set colorcolumn=81
 
 augroup php
   autocmd!
