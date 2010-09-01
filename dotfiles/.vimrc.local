@@ -23,7 +23,9 @@ let NERDTreeHijackNetrw=0
 iabbrev rdebug require 'ruby-debug'; Debugger.start; debugger
 iabbrev bound puts '*'*80
 
-silent! set colorcolumn=81
+if exists('+colorcolumn')
+  set colorcolumn=81
+endif
 
 augroup php
   autocmd!
