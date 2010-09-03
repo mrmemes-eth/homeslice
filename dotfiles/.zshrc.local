@@ -1,6 +1,9 @@
 # fortune cookie (where available)
 [[ -x $(whence -p fortune) ]] && print 'Kornfucius Say:' && fortune -s
 
+# if running screen, show window #
+[[ x$WINDOW != x ]] && PROMPT="$WINDOW:$PROMPT"
+
 alias rsync='rsync --partial --progress'
 alias rake='time rake'
 
