@@ -23,6 +23,11 @@ let NERDTreeHijackNetrw=0
 iabbrev rdebug require 'ruby-debug'; Debugger.start; debugger
 iabbrev bound puts '*'*80
 
+" some abbreviations to make writing jasmine less clumsy
+iabbrev jdes describe("", function(){});
+iabbrev jbef beforeEach(function(){});
+iabbrev jit it("", function(){});
+
 if exists('+colorcolumn')
   set colorcolumn=81
 endif
