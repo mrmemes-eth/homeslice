@@ -26,3 +26,5 @@
 	pretty = oneline
 [push]
 	default = tracking
+[github]
+	user = voxdolo
