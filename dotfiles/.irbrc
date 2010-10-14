@@ -5,17 +5,16 @@ require 'pp'
 
 begin
   require 'wirble'
+  Wirble.init
+  Wirble.colorize
 rescue LoadError
-  raise 'Please install wirble'
+  # Wirble is not installed. Do nothing.
 end
 
 IRB.conf[:AUTO_INDENT]  = true
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history" 
 IRB.conf[:PROMPT_MODE]  = :SIMPLE
-
-Wirble.init
-Wirble.colorize
 
 if ENV['RAILS_ENV'] 
   load File.dirname(__FILE__) + '/.railsrc' 
