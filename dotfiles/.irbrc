@@ -13,11 +13,11 @@ end
 
 IRB.conf[:AUTO_INDENT]  = true
 IRB.conf[:SAVE_HISTORY] = 1000
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history" 
+IRB.conf[:HISTORY_FILE] = File.join(ENV['HOME'],'.irb_history')
 IRB.conf[:PROMPT_MODE]  = :SIMPLE
 
-if ENV['RAILS_ENV'] 
-  load File.dirname(__FILE__) + '/.railsrc' 
+if ENV.has_key?('RAILS_ENV')
+  load File.join(File.dirname(__FILE__), '.railsrc')
 end
 
 def pb(string)
