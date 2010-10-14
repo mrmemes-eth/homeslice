@@ -16,7 +16,7 @@ class Wha
   end
 
   def day
-    unless @fuzz.any?
+    unless @fuzz
       Chronic.parse('today',@options)
     else
       Chronic.parse(@fuzz,@options)
