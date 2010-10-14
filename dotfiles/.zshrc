@@ -71,7 +71,6 @@ alias lsd='ls -ld *(-/DN)'
 alias md='mkdir -p'
 alias rd='rmdir'
 alias cd..='cd ..'
-alias ..='cd ..'
 alias spec='spec -c'
 
 # hashrocket dev env
