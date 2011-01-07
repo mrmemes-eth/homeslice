@@ -16,8 +16,9 @@ IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = File.join(ENV['HOME'],'.irb_history')
 IRB.conf[:PROMPT_MODE]  = :SIMPLE
 
-if ENV.has_key?('RAILS_ENV')
-  load File.join(File.dirname(__FILE__), '.railsrc')
+if defined?(Rails)
+  railsrc = File.join(File.dirname(__FILE__), '.railsrc')
+  load railsrc if File.exist?(railsrc)
 end
 
 def pb(string)
