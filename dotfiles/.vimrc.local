@@ -13,6 +13,8 @@ set splitright
 set hidden
 set nu
 
+autocmd User Rails Rnavcommand fabricator spec/fabricators -glob=**/* -suffix=_fabricator.rb
+
 " make <Tab> characters less heinous
 set tabstop=2
 set shiftwidth=2
