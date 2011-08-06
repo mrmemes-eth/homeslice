@@ -1,10 +1,10 @@
+set bg=dark
+
 augroup vimrc
   autocmd!
-  autocmd GuiEnter * set guifont=Meslo\ LG\ S\ DZ:h18 columns=100 lines=42 guioptions-=T
-  autocmd GUIEnter * colorscheme peaksea
+  autocmd GuiEnter * set guifont=Menlo\ Regular:h16 columns=100 lines=42 guioptions-=T
+  autocmd GUIEnter * colorscheme vividchalk
 augroup END
-
-set bg=dark
 
 set clipboard=exclude:.*
 set visualbell
