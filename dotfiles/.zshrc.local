@@ -6,8 +6,18 @@
 
 alias rsync='rsync --partial --progress'
 alias rake='time rake'
-alias glog='git log --oneline --decorate'
 
 # personal dev env
 export DEV_DIR="$HOME/dev"
 export HASHROCKET_DIR="$DEV_DIR/hashrock"
+
+function cuke() {
+  local file="$1"
+  shift
+  cucumber "features/$file" $@
+}
+compctl -g '*.feature' -W features cuke
+
+function run () {
+  gcc -framework Foundation $1 -o current_example && ./current_example
+}
