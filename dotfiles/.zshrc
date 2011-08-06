@@ -38,7 +38,7 @@ git_prompt_info() {
 }
 
 # prompt
-PROMPT='%{$fg[yellow]%}%2c%{$reset_color%}$(git_prompt_info)%# '
+PROMPT='%{$fg_bold[yellow]%}%2c%{$reset_color%}$(git_prompt_info "(%s)")%# '
 
 # if on a remote host, show host name
 [[ -n "$SSH_CLIENT" ]] && PROMPT="$HOST:$PROMPT"
@@ -64,9 +64,9 @@ bindkey -e
 alias mv='nocorrect mv'       # no spelling correction on mv
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
-alias bundle='nocorrect bundle'
 alias spec='nocorrect spec'
 alias rspec='nocorrect rspec'
+alias heroku='nocorrect heroku'
 alias ll="ls -l"
 alias l.='ls -ld .[^.]*'
 alias lsd='ls -ld *(-/DN)'
