@@ -21,12 +21,3 @@ compctl -g '*.feature' -W features cuke
 function run () {
   gcc -framework Foundation $1 -o current_example && ./current_example
 }
-
-unalias gco
-function gco() {
-  if [[ $1 == '.' ]]; then
-    echo 'If you really *must* do that, please use: `git checkout .`'
-  else
-    git checkout $*
-  fi
-}
