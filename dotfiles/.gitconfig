@@ -8,6 +8,7 @@
 	di = diff
 	logg = !git log --oneline --decorate
 	rmall = !git ls-files --deleted|xargs git rm --cached
+	brecent = !git for-each-ref --sort=-committerdate refs/heads/
 [apply]
 	whitespace = nowarn
 [merge]
