@@ -39,3 +39,6 @@ augroup php
   autocmd FileType php set expandtab shiftwidth=2
   autocmd FileType php unlet! b:did_indent | runtime! indent/html.vim
 augroup END
+
+let g:vimclojure#HighlightBuiltins = 1
+let g:vimclojure#ParenRainbow = 1
