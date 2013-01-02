@@ -92,8 +92,5 @@ cdpath=(~ ~/src $DEV_DIR $HASHROCKET_DIR)
 # load from Rubygems
 export RUBYOPT='rubygems'
 
-# for the JDK
-export JAVA_HOME=`/usr/libexec/java_home`
-
 # rvm-install added line:
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
