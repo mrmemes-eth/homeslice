@@ -1,3 +1,9 @@
+# load from Rubygems
+export RUBYOPT='rubygems'
+
+# override HR prompt with my preferred prompt
+PROMPT='%{$fg_bold[yellow]%}%2c%{$reset_color%}$(git_prompt_info "(%s)")%# '
+
 # fortune cookie (where available)
 [[ -x $(whence -p fortune) ]] && print 'Kornfucius Say:' && fortune -s
 
@@ -11,15 +17,14 @@ alias rake='time rake'
 export DEV_DIR="$HOME/dev"
 export HASHROCKET_DIR="$DEV_DIR/hashrock"
 
-function cuke() {
-  local file="$1"
-  shift
-  cucumber "features/$file" $@
-}
-compctl -g '*.feature' -W features cuke
+# override cdpath after my overridden dev dirs are exported
+cdpath=(~ ~/src $DEV_DIR $HASHROCKET_DIR)
 
 function run () {
   gcc -framework Foundation $1 -o current_example && ./current_example
 }
 
 eval "$($HASHROCKET_DIR/hr/bin/hr init -)"
+
+# if on a remote host, show host name
+[[ -n "$SSH_CLIENT" ]] && PROMPT="$HOST:$PROMPT"
