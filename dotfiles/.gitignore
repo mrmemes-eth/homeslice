@@ -1,6 +1,6 @@
 .*swp
 db/production.sql*
-tags
+tmp/tags
 config/settings.yml
 _out
 
