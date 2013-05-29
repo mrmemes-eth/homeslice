@@ -21,3 +21,5 @@ compctl -g '*.feature' -W features cuke
 function run () {
   gcc -framework Foundation $1 -o current_example && ./current_example
 }
+
+eval "$($HASHROCKET_DIR/hr/bin/hr init -)"
