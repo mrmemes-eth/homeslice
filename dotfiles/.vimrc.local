@@ -34,6 +34,11 @@ if exists('+colorcolumn')
   set colorcolumn=81
 endif
 
+augroup markdown
+  autocmd!
+  autocmd FileType markdown set formatoptions=tcqn textwidth=78
+augroup END
+
 augroup php
   autocmd!
   autocmd FileType php set expandtab shiftwidth=2
