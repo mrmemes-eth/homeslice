@@ -25,3 +25,8 @@ eval "$($HASHROCKET_DIR/hr/bin/hr init -)"
 
 # if on a remote host, show host name
 [[ -n "$SSH_CLIENT" ]] && PROMPT="$HOST:$PROMPT"
+
+# ops configuration
+export _HR_OPS="$HOME/hashrocket/ops"
+export HR_LIBEXEC_PATH="$HR_LIBEXEC_PATH:$_HR_OPS/libexec"
+
