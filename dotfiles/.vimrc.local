@@ -46,8 +46,15 @@ augroup php
   autocmd FileType php unlet! b:did_indent | runtime! indent/html.vim
 augroup END
 
-let g:vimclojure#HighlightBuiltins = 1
-let g:vimclojure#ParenRainbow = 1
+" dem rainbow parens
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" vim-clojure-static
+let g:clojure_align_multiline_strings = 1
+let g:clojure_align_subforms = 1
 
 let g:rails_projections = {
       \ "app/decorators/*_decorator.rb": {
