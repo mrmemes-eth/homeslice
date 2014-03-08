@@ -1,5 +1,8 @@
 set bg=dark
 
+" because I keep fat-fingering F1
+nmap <F1> <nop>
+
 augroup vimrc
   autocmd!
   autocmd GuiEnter * set guifont=Menlo\ Regular:h16 columns=100 lines=42 guioptions-=T
