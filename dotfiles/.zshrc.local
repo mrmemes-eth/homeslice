@@ -1,6 +1,3 @@
-# load from Rubygems
-export RUBYOPT='rubygems'
-
 # override HR prompt with my preferred prompt
 PROMPT='%{$fg_bold[yellow]%}%2c%{$reset_color%}$(git_prompt_info "(%s)")%# '
 
