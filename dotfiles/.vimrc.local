@@ -59,11 +59,19 @@ let g:clojure_align_subforms = 1
 let g:rails_projections = {
       \ "app/decorators/*_decorator.rb": {
       \   "command": "decorator",
-      \   "template":
-      \     "class %SDecorator < SimpleDelegator\nend",
-      \   "test": [
-      \     "test/unit/%s_decorator_test.rb",
-      \     "spec/models/%s_decorator_spec.rb"
-      \   ],
-      \   "keywords": "process version"
+      \   "template": "class %SDecorator < SimpleDelegator\nend",
+      \   "test": ["spec/decorators/%s_decorator_spec.rb"],
+      \   "affinity": "model"
+      \ },
+      \ "app/builders/*_builder.rb": {
+      \   "command": "builder",
+      \   "template": "class %SBuilder\nend",
+      \   "test": ["spec/builders/%s_builder_spec.rb"],
+      \  "affinity": "collection"
+      \ },
+      \ "app/facades/*_facade.rb": {
+      \   "command": "facade",
+      \   "template": "class %SFacade\nend",
+      \   "test": ["spec/facades/%s_facade_spec.rb"],
+      \  "affinity": "collection"
       \ }}
