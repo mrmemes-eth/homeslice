@@ -27,7 +27,7 @@ eval "$($HASHROCKET_DIR/hr/bin/hr init -)"
 [[ -n "$SSH_CLIENT" ]] && PROMPT="$HOST:$PROMPT"
 
 # ops configuration
-export _HR_OPS="$HOME/hashrocket/ops"
+export _HR_OPS="$HASHROCKET_DIR/ops"
 export HR_LIBEXEC_PATH="$HR_LIBEXEC_PATH:$_HR_OPS/libexec"
 
 # make with the full color spectrum
