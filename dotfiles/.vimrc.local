@@ -1,49 +1,27 @@
+colorscheme muono
 set bg=dark
+set laststatus=2
 
-" because I keep fat-fingering F1
-nmap <F1> <nop>
-
-augroup vimrc
-  autocmd!
-  autocmd GuiEnter * set guifont=Menlo\ Regular:h16 columns=100 lines=42 guioptions-=T
-  autocmd GUIEnter * colorscheme vividchalk
-augroup END
-
-set clipboard=exclude:.*
-set visualbell
-set splitbelow
-set splitright
-set hidden
+set guifont=Menlo\ Regular:h16
 set nu
+set shell=zsh
 
 " make <Tab> characters less heinous
 set tabstop=2
 set shiftwidth=2
 set expandtab
 
-let NERDTreeHijackNetrw=0
-
-iabbrev rdebug require 'ruby-debug'; Debugger.start; debugger
-iabbrev bound puts '*'*80
-
-" some abbreviations to make writing jasmine less clumsy
-iabbrev jdes describe("", function(){});
-iabbrev jbef beforeEach(function(){});
-iabbrev jit it("", function(){});
-
 if exists('+colorcolumn')
   set colorcolumn=81
+endif
+
+if !has('gui_running')
+  set t_Co=256
 endif
 
 augroup markdown
   autocmd!
   autocmd FileType markdown set formatoptions=tcqn textwidth=78
-augroup END
-
-augroup php
-  autocmd!
-  autocmd FileType php set expandtab shiftwidth=2
-  autocmd FileType php unlet! b:did_indent | runtime! indent/html.vim
 augroup END
 
 " dem rainbow parens
@@ -56,22 +34,25 @@ au Syntax * RainbowParenthesesLoadBraces
 let g:clojure_align_multiline_strings = 1
 let g:clojure_align_subforms = 1
 
-let g:rails_projections = {
-      \ "app/decorators/*_decorator.rb": {
-      \   "command": "decorator",
-      \   "template": "class %SDecorator < SimpleDelegator\nend",
-      \   "test": ["spec/decorators/%s_decorator_spec.rb"],
-      \   "affinity": "model"
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
       \ },
-      \ "app/builders/*_builder.rb": {
-      \   "command": "builder",
-      \   "template": "class %SBuilder\nend",
-      \   "test": ["spec/builders/%s_builder_spec.rb"],
-      \  "affinity": "collection"
+      \ 'component': {
+      \   'readonly': '%{&filetype=="help"?"":&readonly?"🔒":""}',
+      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
       \ },
-      \ "app/facades/*_facade.rb": {
-      \   "command": "facade",
-      \   "template": "class %SFacade\nend",
-      \   "test": ["spec/facades/%s_facade_spec.rb"],
-      \  "affinity": "collection"
-      \ }}
+      \ 'component_visible_condition': {
+      \   'readonly': '(&filetype!="help"&& &readonly)',
+      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+      \ },
+      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+      \ }
+
+nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
