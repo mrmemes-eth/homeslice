@@ -1,0 +1,12 @@
+set-window-option -g utf8 on
+set -g status-utf8 on
+set -g utf8 on
+
+set -g status-bg colour67
+set -g status-fg colour234
+set -g pane-border-fg colour67
+set -g pane-active-border-fg colour117
+
+set-option -g message-fg colour234
+set-option -g message-bg colour81
+set-option -g message-attr dim
