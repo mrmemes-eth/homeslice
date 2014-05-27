@@ -1,4 +1,6 @@
 set-window-option -g utf8 on
+
+set -g status-left '#[fg=colour18,bg=colour153,bold] #S '
 set -g status-utf8 on
 set -g utf8 on
 
