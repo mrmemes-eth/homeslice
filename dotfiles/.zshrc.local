@@ -1,5 +1,5 @@
 # override HR prompt with my preferred prompt
-PROMPT='%{$fg_bold[yellow]%}%2c%{$reset_color%}$(git_prompt_info "(%s)")%{[38;5;185m%}⟢ %{$reset_color%}'
+PROMPT='%{$fg_bold[blue]%}%2c%{$reset_color%}$(git_prompt_info "(%s)")%{[38;5;67m%} ♉ %{$reset_color%}'
 
 # fortune cookie (where available)
 [[ -x $(whence -p fortune) ]] && print 'Kornfucius Say:' && fortune -s
@@ -30,3 +30,5 @@ eval "$($HASHROCKET_DIR/hr/bin/hr init -)"
 export _HR_OPS="$HOME/hashrocket/ops"
 export HR_LIBEXEC_PATH="$HR_LIBEXEC_PATH:$_HR_OPS/libexec"
 
+# make with the full color spectrum
+export TERM=xterm-256color
