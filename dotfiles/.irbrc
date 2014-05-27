@@ -3,14 +3,6 @@ require 'irb/ext/save-history'
 require 'rubygems'
 require 'pp'
 
-begin
-  require 'wirble'
-  Wirble.init
-  Wirble.colorize
-rescue LoadError
-  # Wirble is not installed. Do nothing.
-end
-
 IRB.conf[:AUTO_INDENT]  = true
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = File.join(ENV['HOME'],'.irb_history')
