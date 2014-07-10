@@ -9,6 +9,7 @@ PROMPT='%{$fg_bold[blue]%}%2c%{$reset_color%}$(git_prompt_info "(%s)")%{[38;5;6
 
 alias rsync='rsync --partial --progress'
 alias rake='time rake'
+alias pullall='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;'
 
 # personal dev env
 export DEV_DIR="$HOME/dev"
