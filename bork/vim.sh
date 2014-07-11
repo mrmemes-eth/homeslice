@@ -45,10 +45,10 @@ ok github tpope/vim-cucumber
 ok github tpope/vim-haml
 ok github tpope/vim-rails
 ok github tpope/vim-rake
-ok github jgdavey/turbux
+ok github jgdavey/vim-turbux
 
 ## clojure
-ok github tpop/vim-classpath
+ok github tpope/vim-classpath
 ok github guns/vim-clojure-static
 ok github tpope/vim-fireplace
 ok github tpope/vim-leiningen
@@ -58,4 +58,4 @@ ok github tpope/vim-sexp-mappings-for-regular-people
 ## javascript
 ok github kchmck/vim-coffee-script
 ok github pangloss/vim-javascript
-ok github lesshill/vim-json
+ok github leshill/vim-json

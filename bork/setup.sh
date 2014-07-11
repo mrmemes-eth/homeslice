@@ -1,6 +1,14 @@
 # install base development software
 
-ok brew
+# bork's ok brew isn't up for installing or really generally working properly
+# without arguments. Let's do it manually!
+
+if hash brew 2>/dev/null; then
+  brew update
+else
+  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+fi
+
 ok brew git
 ok brew ctags
 ok brew git
@@ -12,43 +20,42 @@ ok brew tree
 ok brew postgresql
 if did_install; then
   echo "configuring postgresql to autolaunch via launchctl"
-  ok symlink /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
-  ok launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+  ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 fi
 
 ok brew zsh
 if did_install; then
   echo "changing shell to zsh, you will need to enter your password"
-  ok sudo echo /usr/local/bin/zsh >> /etc/shells
-  ok chsh -s /usr/local/bin/zsh
+  sudo sh -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
+  chsh -s /usr/local/bin/zsh
 fi
 
 ok directory $HOME/dev
 destination $HOME/dev
 ok github voxdolo/homeslice
 
-destination $HOME
-for file in $HOME/dev/homeslice/dotfiles/*; do
-  ok symlink "$(basename $file)" $file
+shopt -s dotglob
+for config in $HOME/dev/homeslice/dotfiles/*; do
+  ok symlink "$HOME/$(basename $config)" $config
 done
 
 ok directory $HOME/bin
-destination $HOME/bin
 for file in $HOME/dev/homeslice/bin/*; do
-  ok symlink "$(basename $file)" $file
+  ok symlink "$HOME/bin/$(basename $file)" $file
 done
+shopt -u dotglob
 
 ok directory $HOME/dev/hashrock
 destination $HOME/dev/hashrock
 ok github hashrocket/hr
 ok github hashrocket/dotmatrix
-destination $HOME/dev/hashrock/dotmatrix
-ok ./install
-
-# set hostname
-ok sudo scutil --set HostName aurum
+cd $HOME/dev/hashrock/dotmatrix
+./bin/install
 
 # casks of GUI apps
+
+brew install caskroom/cask/brew-cask
 
 ok cask alfred
 ok cask caffeine
@@ -60,9 +67,12 @@ ok cask onepassword
 ok cask dropbox
 ok cask sizeup
 
-
 #install RVM
-ok curl -sSL https://get.rvm.io | bash -s stable --ruby
+if hash rvm 2>/dev/null; then
+  echo "ok: rvm"
+else
+  curl -sSL https://get.rvm.io | bash -s stable --ruby
+fi
 
 include vim.sh
 include osx.sh
