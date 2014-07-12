@@ -53,20 +53,6 @@ ok github hashrocket/dotmatrix
 cd $HOME/dev/hashrock/dotmatrix
 ./bin/install
 
-# casks of GUI apps
-
-brew install caskroom/cask/brew-cask
-
-ok cask alfred
-ok cask caffeine
-ok cask google-chrome
-ok cask iterm2
-ok cask rdio
-ok cask slack
-ok cask onepassword
-ok cask dropbox
-ok cask sizeup
-
 #install RVM
 if hash rvm 2>/dev/null; then
   echo "ok: rvm"
@@ -76,3 +62,4 @@ fi
 
 include vim.sh
 include osx.sh
+include cask.sh
