@@ -10,12 +10,20 @@ else
 fi
 
 ok cask alfred
+ok cask appcleaner
 ok cask caffeine
-ok cask google-chrome
-ok cask iterm2
-ok cask rdio
-ok cask slack
-ok cask onepassword
+ok cask daisydisk
 ok cask dropbox
+ok cask google-chrome
+ok cask istumbler
+ok cask iterm2
+ok cask mailplane
+ok cask onepassword
+ok cask plex-home-theater
+ok cask rdio
+ok cask silverlight
 ok cask sizeup
-
+ok cask skype
+ok cask slack
+ok cask steam
+ok cask torbrowser
