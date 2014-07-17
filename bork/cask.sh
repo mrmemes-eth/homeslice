@@ -38,5 +38,8 @@ ok defaults com.runningwithcrayons.Alfred-Preferences appearance.theme alfred.th
 
 ok cask sizeup
 if did_install; then
-  defaults write com.irradiatedsoftware.SizeUp ShowOverlay -int 0
+  # enable accessibility for sizeup
+  sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "INSERT INTO access VALUES('kTCCServiceAccessibility','com.irradiatedsoftware.SizeUp',0,1,1,NULL);"
 fi
+ok defaults com.irradiatedsoftware.SizeUp ShowOverlay integer 0
+ok defaults com.irradiatedsoftware.SizeUp StartAtLogin bool true
