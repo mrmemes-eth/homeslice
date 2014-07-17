@@ -14,6 +14,13 @@ else
   echo "ok: HostName already $hostname"
 fi
 
+# get dockutil
+ok brew dockutil
+if did_install; then
+  echo "Removing all entries from the dock"
+  dockutil --remove all
+fi
+
 # default to save to disk, not iCloud
 ok defaults NSGlobalDomain NSDocumentSaveNewDocumentsToCloud bool false
 
