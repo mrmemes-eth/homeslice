@@ -1,17 +1,21 @@
-# set hostname
-
-hostname="aurum"
-currentHostName=`scutil --get HostName`
-if [[ "$(scutil --get HostName)" != "aurum" ]]; then
-  echo "setting HostName, you will need to enter your password"
-  sudo scutil --set HostName $hostname
+# set computer name
+ComputerName=$(scutil --get ComputerName)
+UserLongName=$(osascript -e "long user name of (system info)")
+if [[ $ComputerName =~ $UserLongName ]]; then
+  echo "Please supply a name for this computer:"
+  read name
+  echo "Administrative privileges are necessary for this rename."
+  sudo -v
+  sudo scutil --set ComputerName $name
+  sudo scutil --set HostName $name
+  sudo scutil --set LocalHostName $name
   if [ "$?" -eq "0" ]; then
-    echo "ok: HostName set to $hostname"
+    echo "ok: HostName set to $name"
   else
     echo "* failure to set HostName"
   fi
 else
-  echo "ok: HostName already $hostname"
+  echo "ok: ComputerName already set"
 fi
 
 # get dockutil
