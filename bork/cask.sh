@@ -9,7 +9,6 @@ else
   brew cask update
 fi
 
-ok cask alfred
 ok cask appcleaner
 ok cask caffeine
 ok cask daisydisk
@@ -26,6 +25,16 @@ ok cask skype
 ok cask slack
 ok cask steam
 ok cask torbrowser
+
+ok cask alfred
+if did_install; then
+  # remove spotlight keybindings
+  defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 0; value = { parameters = (65535, 49, 1048576); type = standard; }; }"
+  defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 65 "{ enabled = 0; value = { parameters = (65535, 49, 1572864); type = standard; }; }"
+  # add alfred keybinding
+  defaults write com.runningwithcrayons.Alfred-Preferences hotkey.default -dict key -int 49 mod -int 1048576 string Space
+fi
+ok defaults com.runningwithcrayons.Alfred-Preferences appearance.theme alfred.theme.dark
 
 ok cask sizeup
 if did_install; then
