@@ -28,6 +28,8 @@ ok cask torbrowser
 
 ok cask alfred
 if did_install; then
+  # make alfred aware of casks
+  brew cask alfred link
   # remove spotlight keybindings
   defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 0; value = { parameters = (65535, 49, 1048576); type = standard; }; }"
   defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 65 "{ enabled = 0; value = { parameters = (65535, 49, 1572864); type = standard; }; }"
