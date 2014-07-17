@@ -65,3 +65,12 @@ fi
 include vim.sh
 include osx.sh
 include cask.sh
+
+echo $HOME/dev/homeslice/ssh_config.sh|pbcopy
+
+echo "<======================================================================>"
+echo " NEXT STEPS"
+echo " 1. authenticate 1password"
+echo " 2. authenticate chrome"
+echo " 3. configure SSH (command copied to clipboard)"
+echo "<======================================================================>"
