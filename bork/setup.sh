@@ -14,8 +14,10 @@ ok brew ctags
 ok brew git
 ok brew heroku-toolbelt
 ok brew leiningen
-ok brew tmux
 ok brew tree
+
+ok brew tmux
+ok brew reattach-to-user-namespace --wrap-pbpaste-and-pbcopy
 
 ok brew postgresql
 if did_install; then
