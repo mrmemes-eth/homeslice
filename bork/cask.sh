@@ -22,8 +22,12 @@ ok cask onepassword
 ok cask plex-home-theater
 ok cask rdio
 ok cask silverlight
-ok cask sizeup
 ok cask skype
 ok cask slack
 ok cask steam
 ok cask torbrowser
+
+ok cask sizeup
+if did_install; then
+  defaults write com.irradiatedsoftware.SizeUp ShowOverlay -int 0
+fi
