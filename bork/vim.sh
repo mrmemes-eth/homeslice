@@ -5,6 +5,9 @@ destination $HOME/.vim/bundle
 
 # vim bundles
 
+## colors
+ok github voxdolo/Muono
+
 ## misc
 ok github tpope/vim-pathogen
 ok github tpope/vim-dispatch
