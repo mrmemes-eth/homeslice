@@ -21,7 +21,7 @@ ok github itchyny/lightline.vim
 ok github kien/rainbow_parentheses.vim
 
 ## Buffers
-ok github limon/Buffkill
+ok github vim-scripts/bufkill.vim
 ok github duff/vim-bufonly
 
 ## Editing
