@@ -15,6 +15,7 @@ ok github tpope/vim-eunuch
 ok github tpope/vim-markdown
 ok github tpope/vim-sensible
 ok github tpope/vim-unimpaired
+ok github scrooloose/nerdtree
 
 ## UI
 ok github itchyny/lightline.vim
