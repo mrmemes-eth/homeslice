@@ -18,15 +18,14 @@
      ;; --------------------------------------------------------
      auto-completion
      better-defaults
-     (git :variables
-          git-gutter-use-fringe t)
-     markdown
+     eyebrowse
      colors
      org
      syntax-checking
-     (clojure :variables
-              clojure-enable-fancify-symbols t)
+     (git :variables git-gutter-use-fringe t)
+     (clojure :variables clojure-enable-fancify-symbols t)
      ruby
+     markdown
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -63,8 +62,6 @@ before layers configuration."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(monokai
-                         solarized-light
-                         solarized-dark
                          leuven
                          zenburn)
    ;; If non nil the cursor color matches the state color.
@@ -130,7 +127,7 @@ before layers configuration."
    dotspacemacs-persistent-server nil
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
-   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
+   dotspacemacs-search-tools '("ag" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now.
