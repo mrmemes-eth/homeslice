@@ -12,21 +12,24 @@
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     ;; --------------------------------------------------------
-     ;; Example of useful layers you may want to use right away
-     ;; Uncomment a layer name and press C-c C-c to install it
-     ;; --------------------------------------------------------
-     auto-completion
      better-defaults
      eyebrowse
      colors
      org
      syntax-checking
-     (git :variables git-gutter-use-fringe t)
-     (clojure :variables clojure-enable-fancify-symbols t)
+     emacs-lisp
+     (auto-completion :variables
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-enable-sort-by-usage t)
+     (shell :variables
+            shell-default-shell 'ansi-term
+            shell-default-term-shell "/usr/local/bin/zsh")
+     (git :variables
+          git-gutter-use-fringe t)
+     (clojure :variables
+              clojure-enable-fancify-symbols t)
      ruby
-     markdown
-     )
+     markdown)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -68,7 +71,7 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Meslo LG S for Powerline"
                                :size 14
                                :weight normal
                                :width normal
@@ -114,7 +117,7 @@ before layers configuration."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'.
-   dotspacemacs-inactive-transparency 90
+   dotspacemacs-inactive-transparency 30
    ;; If non nil unicode symbols are displayed in the mode line.
    dotspacemacs-mode-line-unicode-symbols t
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
@@ -132,15 +135,26 @@ before layers configuration."
    ;; specified with an installed package.
    ;; Not used for now.
    dotspacemacs-default-package-repository nil
-   ruby-version-manager 'rbenv
+   ruby-version-manager 'rvm
    ruby-enable-ruby-on-rails-support t)
   ;; User initialization goes here
   )
 
 (defun dotspacemacs/config ()
   "Configuration function.
- This function is called at the very end of Spacemacs initialization after
-layers configuration.")
+   This function is called at the very end of Spacemacs initialization after layers configuration."
+  (define-key evil-normal-state-map (kbd "wn")
+    'eyebrowse-last-window-config)
+  (define-key evil-normal-state-map (kbd "gt")
+    'eyebrowse-prev-window-config)
+  (define-key evil-normal-state-map (kbd "gT")
+    'eyebrowse-next-window-config)
+  ;; clj-refactor config
+  (add-to-list 'cljr-magic-require-namespaces '("dbg" . "com.suiteness.internal.debug") t)
+  ;; customize powerline
+  (setq powerline-default-separator nil
+        powerline-center-theme t))
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
