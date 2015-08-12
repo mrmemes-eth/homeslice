@@ -11,8 +11,8 @@
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '(
-     better-defaults
+   '(better-defaults
+     osx
      eyebrowse
      colors
      org
@@ -28,7 +28,9 @@
           git-gutter-use-fringe t)
      (clojure :variables
               clojure-enable-fancify-symbols t)
+     html
      ruby
+     ruby-on-rails
      markdown)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -140,6 +142,15 @@ before layers configuration."
   ;; User initialization goes here
   )
 
+(defun voxdolo/web-mode-hook ()
+  (setq web-mode-markup-indent-offset 2))
+
+(defun voxdolo/cider-namespace-refresh ()
+  (interactive)
+  (cider-interactive-eval
+   "(require 'clojure.tools.namespace.repl)
+    (clojure.tools.namespace.repl/refresh)"))
+
 (defun dotspacemacs/config ()
   "Configuration function.
    This function is called at the very end of Spacemacs initialization after layers configuration."
@@ -149,8 +160,20 @@ before layers configuration."
     'eyebrowse-prev-window-config)
   (define-key evil-normal-state-map (kbd "gT")
     'eyebrowse-next-window-config)
+  ;; configure web-mode
+  (add-hook 'web-mode-hook 'voxdolo/web-mode-hook)
+  ;; use coreutils/gls for dired
+  (setq insert-directory-program "/usr/local/bin/gls")
   ;; clj-refactor config
-  (add-to-list 'cljr-magic-require-namespaces '("dbg" . "com.suiteness.internal.debug") t)
+  (setq cljr-magic-require-namespaces
+        '(("io" . "clojure.java.io")
+          ("set" . "clojure.set")
+          ("str" . "clojure.string")
+          ("time" . "clj-time.core")))
+  ;; custom keybindings
+  (dolist (m '(clojure-mode clojurec-mode clojurescript-mode clojurex-mode))
+    (evil-leader/set-key-for-mode m
+      "msa" 'voxdolo/cider-namespace-refresh))
   ;; customize powerline
   (setq powerline-default-separator nil
         powerline-center-theme t))
