@@ -10,3 +10,6 @@ _out
 build/
 .xcodeproj/ !*.xcodeproj/project.pbxproj
 xcuserdata
+
+resources/public/styles/*.css
+.env

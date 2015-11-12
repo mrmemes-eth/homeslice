@@ -6,6 +6,9 @@ set guifont=Menlo\ Regular:h16
 set nu
 set shell=zsh
 
+" map local leader for vim-sexp
+let maplocalleader = "\\"
+
 " make <Tab> characters less heinous
 set tabstop=2
 set shiftwidth=2
@@ -56,3 +59,7 @@ let g:lightline = {
 
 nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+" blurgh XML
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax

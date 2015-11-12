@@ -13,23 +13,19 @@ alias pullall='find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$
 
 # personal dev env
 export DEV_DIR="$HOME/dev"
-export HASHROCKET_DIR="$DEV_DIR/hashrock"
+export OUTPACE_DIR="$DEV_DIR/outpace"
 
 # override cdpath after my overridden dev dirs are exported
-cdpath=(~ ~/src $DEV_DIR $HASHROCKET_DIR)
-
-function run () {
-  gcc -framework Foundation $1 -o current_example && ./current_example
-}
-
-eval "$($HASHROCKET_DIR/hr/bin/hr init -)"
+cdpath=(~ ~/src $DEV_DIR $OUTPACE_DIR)
 
 # if on a remote host, show host name
 [[ -n "$SSH_CLIENT" ]] && PROMPT="$HOST:$PROMPT"
 
-# ops configuration
-export _HR_OPS="$HASHROCKET_DIR/ops"
-export HR_LIBEXEC_PATH="$HR_LIBEXEC_PATH:$_HR_OPS/libexec"
-
 # make with the full color spectrum
 export TERM=xterm-256color
+
+# make with the colorful grepping
+export GREP_OPTIONS='--color=auto'
+
+# I don't even know who I am anymore
+export EDITOR='emacs'
