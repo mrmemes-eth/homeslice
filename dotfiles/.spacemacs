@@ -29,9 +29,10 @@
      (clojure :variables
               clojure-enable-fancify-symbols t)
      html
+     extra-langs
      ruby
-     ruby-on-rails
-     markdown)
+     markdown
+     sql)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -74,7 +75,7 @@ before layers configuration."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Meslo LG S for Powerline"
-                               :size 14
+                               :size 12
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
