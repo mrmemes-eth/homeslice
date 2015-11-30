@@ -1,0 +1,64 @@
+[alias]
+	aa = add -A .
+	st = status
+	ci = commit
+	co = checkout
+	cp = cherry-pick
+	put = push origin HEAD
+	fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+	squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+	doff = reset head^
+	ri = rebase --interactive
+	br = branch
+	pruneremote = remote prune origin
+	tree = log --graph --oneline --decorate --color --all
+	tr = log --graph --oneline --decorate --color
+	unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
+	unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
+	add-untracked = !"git status --porcelain | awk '/\\?\\?/{ print $2 }' | xargs git add"
+	ln = log --pretty=format:'%Cblue%h %Cred* %C(yellow)%s'
+	reset-authors = commit --amend --reset-author -CHEAD
+	rmbranch = "!f(){ git branch -d ${1} && git push origin --delete ${1}; };f"
+        snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+[branch]
+	autosetuprebase = always
+[color]
+	ui = auto
+[core]
+	excludesfile = ~/.cvsignore
+	editor = emacs
+	whitespace = warn
+[help]
+	autocorrect = 10
+[include]
+	path = ~/.gitconfig.local
+[interactive]
+	singlekey = true
+[merge]
+	summary = true
+[merge "bundlelock"]
+	name = lock Gemfile
+	driver = bundle install
+[merge "bundle"]
+	name = bundle
+	driver = bundle
+[merge "railsschema"]
+	name = newer Rails schema version
+	driver = "ruby -e '\n\
+		system %(git), %(merge-file), %(--marker-size=%L), %(%A), %(%O), %(%B)\n\
+		b = File.read(%(%A))\n\
+		b.sub!(/^<+ .*\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n=+\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n>+ .*/) do\n\
+		  %(ActiveRecord::Schema.define(:version => #{[$1, $2].max}) do)\n\
+		end\n\
+		File.open(%(%A), %(w)) {|f| f.write(b)}\n\
+		exit 1 if b.include?(%(<)*%L)'"
+[push]
+	default = tracking
+[rebase]
+	autosquash = true
+[diff]
+	algorithm = patience
+[diff "nodiff"]
+	command = /usr/bin/true
+[user]
+	signingkey = B9CA1402
