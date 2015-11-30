@@ -88,9 +88,10 @@ setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 
 # default apps
-(( ${+PAGER}   )) || export PAGER='less'
-(( ${+EDITOR}  )) || export EDITOR='emacs'
-export PSQL_EDITOR='emacs'
+export ALTERNATE_EDITOR=''
+export VISUAL='vim'
+export PAGER='less'
+export EDITOR="$VISUAL"
 
 # aliases
 alias mv='nocorrect mv'       # no spelling correction on mv
@@ -123,10 +124,6 @@ cuke() {
   cucumber "features/$(basename $file)" $@
 }
 compctl -g '*.feature' -W features cuke
-
-# import local zsh customizations, if present
-zrcl="$HOME/.zshrc.local"
-[[ ! -a $zrcl ]] || source $zrcl
 
 # make with the colorful grepping
 export GREP_OPTIONS='--color=auto'
