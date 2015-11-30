@@ -175,6 +175,9 @@ before layers configuration."
   (dolist (m '(clojure-mode clojurec-mode clojurescript-mode clojurex-mode))
     (evil-leader/set-key-for-mode m
       "msa" 'voxdolo/cider-namespace-refresh))
+  ;; emacs as psql editor
+  (add-to-list 'auto-mode-alist
+               '("/psql.edit.[0-9]+\\'" . sql-mode))
   ;; customize powerline
   (setq powerline-default-separator nil
         powerline-center-theme t))
