@@ -146,21 +146,11 @@ before layers configuration."
 (defun voxdolo/web-mode-hook ()
   (setq web-mode-markup-indent-offset 2))
 
-(defun voxdolo/cider-namespace-refresh ()
-  (interactive)
-  (cider-interactive-eval
-   "(require 'clojure.tools.namespace.repl)
-    (clojure.tools.namespace.repl/refresh)"))
-
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "Configuration function.
    This function is called at the very end of Spacemacs initialization after layers configuration."
   (define-key evil-normal-state-map (kbd "wn")
     'eyebrowse-last-window-config)
-  (define-key evil-normal-state-map (kbd "gt")
-    'eyebrowse-prev-window-config)
-  (define-key evil-normal-state-map (kbd "gT")
-    'eyebrowse-next-window-config)
   ;; configure web-mode
   (add-hook 'web-mode-hook 'voxdolo/web-mode-hook)
   ;; use coreutils/gls for dired
@@ -171,10 +161,6 @@ before layers configuration."
           ("set" . "clojure.set")
           ("str" . "clojure.string")
           ("time" . "clj-time.core")))
-  ;; custom keybindings
-  (dolist (m '(clojure-mode clojurec-mode clojurescript-mode clojurex-mode))
-    (evil-leader/set-key-for-mode m
-      "msa" 'voxdolo/cider-namespace-refresh))
   ;; emacs as psql editor
   (add-to-list 'auto-mode-alist
                '("/psql.edit.[0-9]+\\'" . sql-mode))
