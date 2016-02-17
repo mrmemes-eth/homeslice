@@ -10,6 +10,7 @@ else
 fi
 
 ok brew git
+ok brew git-fixup
 ok brew ctags
 ok brew git
 ok brew heroku-toolbelt
