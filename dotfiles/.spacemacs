@@ -121,7 +121,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Meslo LG S for Powerline"
-                               :size 12
+                               :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
