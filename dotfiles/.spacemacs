@@ -279,6 +279,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
           ("set" . "clojure.set")
           ("str" . "clojure.string")
           ("time" . "clj-time.core")))
+  ;; javascript mode config
+  (setq js-indent-level 2)
   ;; emacs as psql editor
   (add-to-list 'auto-mode-alist
                '("/psql.edit.[0-9]+\\'" . sql-mode))
