@@ -286,6 +286,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; emacs as psql editor
   (add-to-list 'auto-mode-alist
                '("/psql.edit.[0-9]+\\'" . sql-mode))
+  ;; don't group namespaces with clj-refactor
+  (setq cljr-favor-prefix-notation nil)
   ;; customize powerline
   (setq powerline-default-separator nil
         powerline-center-theme t))
