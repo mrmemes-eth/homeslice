@@ -31,13 +31,16 @@ values."
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '(csv
+   '(
+     javascript
+     csv
      better-defaults
      osx
      colors
      org
      syntax-checking
      emacs-lisp
+     eyebrowse
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t)
@@ -271,6 +274,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
     'eyebrowse-last-window-config)
   ;; configure web-mode
   (add-hook 'web-mode-hook 'voxdolo/web-mode-hook)
+  ;; turn off humane-test-output inside emacs
+  (setenv "INHUMANE_TEST_OUTPUT" "1")
   ;; use coreutils/gls for dired
   (setq insert-directory-program "/usr/local/bin/gls")
   ;; clj-refactor config
@@ -281,6 +286,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
           ("time" . "clj-time.core")))
   ;; javascript mode config
   (setq js-indent-level 2)
+  ;; web-mode
+  (setq css-indent-offset 2
+        web-mode-markup-indent-offset 2
+        web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2
+        web-mode-attr-indent-offset 2)
   ;; treat - as part of word in clojure mode
   (add-hook 'clojure-mode-hook #'(lambda () (modify-syntax-entry ?- "w")))
   ;; emacs as psql editor
