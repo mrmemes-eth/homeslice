@@ -31,7 +31,8 @@ values."
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '(
+   '(base16-theme
+     yaml
      javascript
      csv
      better-defaults
@@ -40,7 +41,6 @@ values."
      org
      syntax-checking
      emacs-lisp
-     eyebrowse
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t)
@@ -108,7 +108,7 @@ values."
    ;; `dotspacemacs-startup-lists' doesn't include `recents'. (default 5)
    dotspacemacs-startup-recent-list-size 5
    ;; Default major mode of the scratch buffer (default `text-mode')
-   dotspacemacs-scratch-mode 'text-mode
+   ;; dotspacemacs-scratch-mode 'text-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
@@ -124,7 +124,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Meslo LG S for Powerline"
-                               :size 13
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -284,6 +284,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
           ("set" . "clojure.set")
           ("str" . "clojure.string")
           ("time" . "clj-time.core")))
+  ;; cider config
+  (setq cider-repl-history-file "~/.cider_history")
   ;; javascript mode config
   (setq js-indent-level 2)
   ;; web-mode
