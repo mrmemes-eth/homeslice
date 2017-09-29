@@ -17,6 +17,7 @@ ok brew heroku-toolbelt
 ok brew leiningen
 ok brew tree
 ok brew coreutils
+ok brew ag
 
 ok brew tmux
 ok brew reattach-to-user-namespace --wrap-pbpaste-and-pbcopy
