@@ -72,7 +72,7 @@ if [ -z "$TMUX" ]; then
 fi
 
 # prompt
-PROMPT='%{$fg_bold[blue]%}%2c%{$reset_color%}$(git_prompt_info "(%s)")%{[38;5;67m%} ♉ %{$reset_color%}'
+PROMPT='%{$fg_bold[blue]%}%2c%{$reset_color%}$(git_prompt_info "(%s)")%{[38;5;67m%} λ %{$reset_color%}'
 
 # if on a remote host, show host name
 [[ -n "$SSH_CLIENT" ]] && PROMPT="$HOST:$PROMPT"
@@ -128,3 +128,11 @@ compctl -g '*.feature' -W features cuke
 # make with the colorful grepping
 export GREP_OPTIONS='--color=auto'
 
+# tmate aliases
+alias start-tmate="tmate -S /tmp/tmate.sock new-session"
+alias copy-tmate="tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}' | pbcopy"
+
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
