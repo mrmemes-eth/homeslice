@@ -58,6 +58,8 @@ ok github hashrocket/dotmatrix
 cd $HOME/dev/hashrock/dotmatrix
 ./bin/install
 
+ok github tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+
 #install RVM
 if hash rvm 2>/dev/null; then
   echo "ok: rvm"
