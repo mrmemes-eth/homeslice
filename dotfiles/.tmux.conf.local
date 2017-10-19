@@ -10,5 +10,7 @@ set-option -g message-fg colour234
 set-option -g message-bg colour81
 set-option -g message-attr dim
 
+set -g @onedark_widgets "#(date +%s)"
+
 # easier clearing
 bind -n C-k clear-history
