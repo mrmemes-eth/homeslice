@@ -135,4 +135,3 @@ alias copy-tmate="tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}' | pbcopy"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
