@@ -1,4 +1,3 @@
-colorscheme muono
 set bg=dark
 set laststatus=2
 
@@ -26,12 +25,6 @@ augroup markdown
   autocmd!
   autocmd FileType markdown set formatoptions=tcqn textwidth=78
 augroup END
-
-" dem rainbow parens
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 " vim-clojure-static
 let g:clojure_align_multiline_strings = 1
