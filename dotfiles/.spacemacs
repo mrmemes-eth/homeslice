@@ -31,7 +31,7 @@ values."
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '(base16-theme
+   '(theming
      yaml
      javascript
      csv
@@ -124,10 +124,10 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Meslo LG S for Powerline"
-                               :size 16
+                               :size 15
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -261,7 +261,12 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+  (setq theming-modifications
+        '((monokai
+           (default :background "#313131")
+           (hl-line :background "#424242")
+           (neo-root-dir-face :background "#313131")
+           (neo-dir-link-face :background "#313131")))))
 
 
 (defun voxdolo/web-mode-hook ()
