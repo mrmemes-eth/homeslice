@@ -17,6 +17,7 @@ ok brew heroku-toolbelt
 ok brew leiningen
 ok brew tree
 ok brew coreutils
+ok brew proctools
 ok brew ag
 
 ok brew tmux
