@@ -266,7 +266,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
            (default :background "#313131")
            (hl-line :background "#424242")
            (neo-root-dir-face :background "#313131")
-           (neo-dir-link-face :background "#313131")))))
+           (neo-dir-link-face :background "#313131")
+           (region :foreground "#313131" :background "#FFFF00")
+           ))))
 
 
 (defun voxdolo/web-mode-hook ()
@@ -307,8 +309,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; don't group namespaces with clj-refactor
   (setq cljr-favor-prefix-notation nil)
   ;; customize powerline
-  (setq powerline-default-separator nil
-        powerline-center-theme t))
+  (setq powerline-default-separator 'alternate))
 
 
 ;; Do not write anything past this comment. This is where Emacs will
