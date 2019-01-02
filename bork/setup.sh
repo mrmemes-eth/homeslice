@@ -13,7 +13,7 @@ ok brew git
 ok brew git-fixup
 ok brew ctags
 ok brew git
-ok brew heroku-toolbelt
+ok brew heroku/brew/heroku
 ok brew leiningen
 ok brew tree
 ok brew coreutils
@@ -46,18 +46,7 @@ for config in $HOME/dev/homeslice/dotfiles/*; do
   ok symlink "$HOME/$(basename $config)" $config
 done
 
-ok directory $HOME/bin
-for file in $HOME/dev/homeslice/bin/*; do
-  ok symlink "$HOME/bin/$(basename $file)" $file
-done
 shopt -u dotglob
-
-ok directory $HOME/dev/hashrock
-destination $HOME/dev/hashrock
-ok github hashrocket/hr
-ok github hashrocket/dotmatrix
-cd $HOME/dev/hashrock/dotmatrix
-./bin/install
 
 ok github tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 

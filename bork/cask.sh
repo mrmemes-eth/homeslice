@@ -13,11 +13,6 @@ ok cask appcleaner
 ok cask caffeine
 ok cask daisydisk
 ok cask istumbler
-ok cask mailplane
-ok cask plex-home-theater
-ok cask slack
-ok cask steam
-ok cask torbrowser
 
 ok cask alfred
 if did_install; then
@@ -31,10 +26,3 @@ if did_install; then
 fi
 ok defaults com.runningwithcrayons.Alfred-Preferences appearance.theme alfred.theme.dark
 
-ok cask sizeup
-if did_install; then
-  # enable accessibility for sizeup
-  sudo sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db "INSERT INTO access VALUES('kTCCServiceAccessibility','com.irradiatedsoftware.SizeUp',0,1,1,NULL);"
-fi
-ok defaults com.irradiatedsoftware.SizeUp ShowOverlay integer 0
-ok defaults com.irradiatedsoftware.SizeUp StartAtLogin bool true
