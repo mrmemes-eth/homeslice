@@ -118,23 +118,8 @@ cdpath=(~ ~/src "$HOME/dev")
 # rvm-install added line:
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 
-cuke() {
-  local file="$1"
-  shift
-  cucumber "features/$(basename $file)" $@
-}
-compctl -g '*.feature' -W features cuke
-
 # make with the colorful grepping
 export GREP_OPTIONS='--color=auto'
-
-# tmate aliases
-alias start-tmate="tmate -S /tmp/tmate.sock new-session"
-alias copy-tmate="tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}' | pbcopy"
-
+export GREP_COLOR='00;38;5;226'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-
-# heroku autocomplete setup
-CLI_ENGINE_AC_ZSH_SETUP_PATH=/Users/voxdolo/Library/Caches/heroku/completions/zsh_setup && test -f $CLI_ENGINE_AC_ZSH_SETUP_PATH && source $CLI_ENGINE_AC_ZSH_SETUP_PATH;
