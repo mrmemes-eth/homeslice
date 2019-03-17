@@ -22,6 +22,8 @@ ok brew ag
 ok brew tmux
 ok brew reattach-to-user-namespace --wrap-pbpaste-and-pbcopy
 
+ok brew emacs
+
 ok brew postgresql
 if did_install; then
   echo "configuring postgresql to autolaunch via launchctl"
