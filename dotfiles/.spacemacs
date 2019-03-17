@@ -312,6 +312,15 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; customize powerline
   (setq powerline-default-separator 'alternate))
 
+(defun ~/clojure/cider-clojure-cli-jack-in-dependencies (&rest args)
+  (pcase (car args)
+    (`(,global-opts ,params ,dependencies)
+     (list (concat global-opts " " (read-string "Additional options:"))
+           params
+           dependencies))
+    (_ args)))
+
+(advice-add 'cider-clojure-cli-jack-in-dependencies :filter-args '~/clojure/cider-clojure-cli-jack-in-dependencies)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
