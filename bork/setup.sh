@@ -3,12 +3,6 @@
 # bork's ok brew isn't up for installing or really generally working properly
 # without arguments. Let's do it manually!
 
-if hash brew 2>/dev/null; then
-  brew update
-else
-  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-fi
-
 ok brew git
 ok brew git-fixup
 ok brew ctags
