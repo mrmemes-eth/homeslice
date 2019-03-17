@@ -51,13 +51,6 @@ shopt -u dotglob
 
 ok github tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
-#install RVM
-if hash rvm 2>/dev/null; then
-  echo "ok: rvm"
-else
-  curl -sSL https://get.rvm.io | bash -s stable --ruby
-fi
-
 include vim.sh
 include osx.sh
 include cask.sh
