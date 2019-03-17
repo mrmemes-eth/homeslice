@@ -53,7 +53,6 @@ ok github tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
 include vim.sh
 include osx.sh
-include cask.sh
 
 echo $HOME/dev/homeslice/ssh_config.sh|pbcopy
 
