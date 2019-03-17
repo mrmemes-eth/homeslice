@@ -38,12 +38,12 @@ if did_install; then
   chsh -s /usr/local/bin/zsh
 fi
 
-ok directory $HOME/dev
-destination $HOME/dev
+ok directory $HOME/src
+destination $HOME/src
 ok github voxdolo/homeslice
 
 shopt -s dotglob
-for config in $HOME/dev/homeslice/dotfiles/*; do
+for config in $HOME/src/homeslice/dotfiles/*; do
   ok symlink "$HOME/$(basename $config)" $config
 done
 
