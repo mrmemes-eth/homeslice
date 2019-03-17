@@ -308,6 +308,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
                '("/psql.edit.[0-9]+\\'" . sql-mode))
   ;; don't group namespaces with clj-refactor
   (setq cljr-favor-prefix-notation nil)
+  (setq cider-repl-display-help-banner nil)
   ;; customize powerline
   (setq powerline-default-separator 'alternate))
 
