@@ -309,18 +309,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; don't group namespaces with clj-refactor
   (setq cljr-favor-prefix-notation nil)
   (setq cider-repl-display-help-banner nil)
+  ;; set clojure-cli defaults for cider
+  (setq cider-default-repl-command 'clojure-cli)
+  (setq cider-clojure-cli-global-options "-A:dev:test")
   ;; customize powerline
   (setq powerline-default-separator 'alternate))
-
-(defun ~/clojure/cider-clojure-cli-jack-in-dependencies (&rest args)
-  (pcase (car args)
-    (`(,global-opts ,params ,dependencies)
-     (list (concat global-opts " " (read-string "Additional options:"))
-           params
-           dependencies))
-    (_ args)))
-
-(advice-add 'cider-clojure-cli-jack-in-dependencies :filter-args '~/clojure/cider-clojure-cli-jack-in-dependencies)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
