@@ -72,7 +72,7 @@ if [ -z "$TMUX" ]; then
 fi
 
 # prompt
-PROMPT='%{$fg_bold[blue]%}%2c%{$reset_color%}$(git_prompt_info "(%s)")%{[38;5;67m%} λ %{$reset_color%}'
+PROMPT='%{[38;5;145m%}%2c %{$reset_color%}%{[01;38;5;147m%}λ %{$reset_color%}'
 
 # if on a remote host, show host name
 [[ -n "$SSH_CLIENT" ]] && PROMPT="$HOST:$PROMPT"
