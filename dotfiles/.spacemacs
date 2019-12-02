@@ -299,6 +299,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
           ("time" . "clj-time.core")))
   ;; cider config
   (setq cider-repl-history-file "~/.cider_history")
+  (setq cider-clojure-cli-global-options "-A:dev")
   ;; javascript mode config
   (setq js-indent-level 2)
   ;; web-mode
