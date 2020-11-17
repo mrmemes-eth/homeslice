@@ -24,6 +24,8 @@ ok brew reattach-to-user-namespace --wrap-pbpaste-and-pbcopy
 
 ok brew emacs
 
+ok brew borkdude/brew/clj-kondo
+
 ok brew postgresql
 if did_install; then
   echo "configuring postgresql to autolaunch via launchctl"
