@@ -31,31 +31,35 @@ values."
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '(theming
-     yaml
-     javascript
-     csv
+   '((python auto-completion :variables
+             auto-completion-enable-help-tooltip t
+             auto-completion-enable-sort-by-usage t)
      better-defaults
-     osx
+     (clojure :variables
+              clojure-enable-clj-refactor t
+              clojure-enable-fancify-symbols t
+              clojure-enable-linters 'clj-kondo)
      colors
-     org
-     syntax-checking
+     csv
      emacs-lisp
-     (auto-completion :variables
-                      auto-completion-enable-help-tooltip t
-                      auto-completion-enable-sort-by-usage t)
+     (git :variables
+          git-gutter-use-fringe t)
+     html
+     javascript
+     markdown
+     org
+     osx
+     ruby
+     rust
      (shell :variables
             shell-default-shell 'ansi-term
             shell-default-term-shell "/usr/local/bin/zsh")
-     (git :variables
-          git-gutter-use-fringe t)
-     (clojure :variables
-              clojure-enable-fancify-symbols t)
-     html
-     extra-langs
-     ruby
-     markdown
-     sql)
+     sql
+     (syntax-checking :variables
+                      syntax-checking-enable-by-default t)
+     theming
+     yaml)
+   dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -261,14 +265,16 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq theming-modifications
-        '((monokai
-           (default :background "#313131")
-           (hl-line :background "#424242")
-           (neo-root-dir-face :background "#313131")
-           (neo-dir-link-face :background "#313131")
-           (region :foreground "#313131" :background "#FFFF00")
-           ))))
+  (setq js2-strict-missing-semi-warning nil))
+
+;; (setq theming-modifications
+;;       '((monokai
+;;          (default :background "#313131")
+;;          (hl-line :background "#424242")
+;;          (neo-root-dir-face :background "#313131")
+;;          (neo-dir-link-face :background "#313131")
+;;          (region :foreground "#313131" :background "#FFFF00")
+;;          )))
 
 
 (defun voxdolo/web-mode-hook ()
