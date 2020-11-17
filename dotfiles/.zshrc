@@ -1,3 +1,6 @@
+# useful for debugging load time
+# typeset -F SECONDS=0
+
 fpath=(
   $fpath
   ~/.rvm/scripts/zsh/Completion
@@ -122,4 +125,18 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='00;38;5;226'
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export GOBIN='/usr/local/go/bin'
+
+export PATH="$PATH:$HOME/.rvm/bin:/usr/local/go/bin" # Add RVM and Go bin PATHs for scripting
+
+# rvm-install added line:
+if [[ -f "$HOME/.zshrc.local" ]] ; then source "$HOME/.zshrc.local" ; fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/stephen/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stephen/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/stephen/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stephen/google-cloud-sdk/completion.zsh.inc'; fi
+
+# useful for debugging load time
+# echo "$SECONDS seconds to load"
