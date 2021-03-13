@@ -129,7 +129,7 @@ export GOBIN='/usr/local/go/bin'
 
 export PATH="$PATH:$HOME/.rvm/bin:/usr/local/go/bin" # Add RVM and Go bin PATHs for scripting
 
-# rvm-install added line:
+# Source local overrides if present:
 if [[ -f "$HOME/.zshrc.local" ]] ; then source "$HOME/.zshrc.local" ; fi
 
 # The next line updates PATH for the Google Cloud SDK.

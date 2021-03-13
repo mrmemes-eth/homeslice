@@ -6,12 +6,10 @@
 ok brew git
 ok brew git-fixup
 ok brew ctags
-ok brew heroku/brew/heroku
 ok brew leiningen
+ok brew clojure/tools/clojure
 
-if did_install; then
-  brew cask install java
-end
+# java?
 
 ok brew clojure
 ok brew tree
