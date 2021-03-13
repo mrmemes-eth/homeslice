@@ -7,6 +7,7 @@
 You should not put any user code in this function besides modifying the variable
 values."
   (setq-default
+   package-check-signature nil
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
    ;; or `spacemacs'. (default 'spacemacs)
@@ -30,7 +31,7 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '((python auto-completion :variables
+   '((auto-completion :variables
              auto-completion-enable-help-tooltip t
              auto-completion-enable-sort-by-usage t)
      better-defaults
@@ -41,31 +42,33 @@ values."
      colors
      csv
      emacs-lisp
+     extra-langs
      (git :variables
           git-gutter-use-fringe t)
      helm
      html
-
-     (typescript :variables
-                 tide-tsserver-executable "/usr/local/bin/tsserver"
-                 typescript-backend 'tide
-                 typescript-fmt-tool 'prettier
-                 typescript-indent-level 2
-                 typescript-linter 'eslint)
-
+     javascript
+     markdown
      org
      osx
+     (python :variables python-backend 'anaconda)
      ruby
      rust
      (shell :variables
             shell-default-shell 'ansi-term
             shell-default-term-shell "/usr/local/bin/zsh")
+     spell-checking
      sql
      (syntax-checking :variables
                       syntax-checking-enable-by-default t)
      theming
      (typescript :variables
-                 typescript-fmt-on-save t)
+                 tide-tsserver-executable "/usr/local/bin/tsserver"
+                 typescript-backend 'tide
+                 typescript-fmt-on-save t
+                 typescript-fmt-tool 'prettier
+                 typescript-indent-level 2
+                 typescript-linter 'eslint)
      yaml)
    dotspacemacs-additional-packages '(editorconfig)
    ;; A list of packages and/or extensions that will not be install and loaded.
@@ -337,6 +340,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
     'eyebrowse-last-window-config)
   ;; configure web-mode
   (add-hook 'web-mode-hook 'voxdolo/web-mode-hook)
+  ;; configure anaconda-mode
+  (add-hook 'python-mode-hook
+            (lambda ()
+              (setq python-guess-indent nil
+                    python-indent 2)))
   ;; turn off humane-test-output inside emacs
   (setenv "INHUMANE_TEST_OUTPUT" "1")
   ;; use coreutils/gls for dired
