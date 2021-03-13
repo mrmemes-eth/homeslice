@@ -43,9 +43,16 @@ values."
      emacs-lisp
      (git :variables
           git-gutter-use-fringe t)
+     helm
      html
-     javascript
-     markdown
+
+     (typescript :variables
+                 tide-tsserver-executable "/usr/local/bin/tsserver"
+                 typescript-backend 'tide
+                 typescript-fmt-tool 'prettier
+                 typescript-indent-level 2
+                 typescript-linter 'eslint)
+
      org
      osx
      ruby
@@ -57,8 +64,10 @@ values."
      (syntax-checking :variables
                       syntax-checking-enable-by-default t)
      theming
+     (typescript :variables
+                 typescript-fmt-on-save t)
      yaml)
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(editorconfig)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; Defines the behaviour of Spacemacs when installing packages.
