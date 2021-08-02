@@ -318,17 +318,16 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq js2-strict-missing-semi-warning nil))
+  (setq js2-strict-missing-semi-warning nil)
 
-;; (setq theming-modifications
-;;       '((monokai
-;;          (default :background "#313131")
-;;          (hl-line :background "#424242")
-;;          (neo-root-dir-face :background "#313131")
-;;          (neo-dir-link-face :background "#313131")
-;;          (region :foreground "#313131" :background "#FFFF00")
-;;          )))
-
+  (setq theming-modifications
+        '((monokai
+           (default :background "#303030")
+           (hl-line :background "#424242")
+           (neo-root-dir-face :background "#303030")
+           (neo-dir-link-face :background "#303030")
+           (region :foreground "#303030" :background "#FFFF00")
+           ))))
 
 (defun voxdolo/web-mode-hook ()
   (setq web-mode-markup-indent-offset 2))
