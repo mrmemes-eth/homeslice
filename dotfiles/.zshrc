@@ -138,5 +138,9 @@ if [ -f '/Users/stephen/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stephen
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/stephen/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stephen/google-cloud-sdk/completion.zsh.inc'; fi
 
+# aaaand NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 # useful for debugging load time
 # echo "$SECONDS seconds to load"
