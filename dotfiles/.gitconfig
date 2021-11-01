@@ -60,3 +60,5 @@
 	command = /usr/bin/true
 [user]
 	signingkey = B9CA1402
+[init]
+	defaultBranch = main
