@@ -1,15 +1,4 @@
 .*swp
-db/production.sql*
 tmp/tags
-config/settings.yml
-_out
-
-
 .DS_Store
-*~.nib
-build/
-.xcodeproj/ !*.xcodeproj/project.pbxproj
-xcuserdata
-
-resources/public/styles/*.css
-.env
+.envrc
