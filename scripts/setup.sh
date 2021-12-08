@@ -7,6 +7,7 @@ nix-env -i tree
 nix-env -i coreutils
 nix-env -i silver-searcher
 nix-env -i emacs
+nix-env -i direnv
 
 nix-env -i tmux
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
