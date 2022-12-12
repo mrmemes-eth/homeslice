@@ -19,3 +19,5 @@ done
 
 # remove duplicates in $PATH
 typeset -aU path
+
+. "$HOME/.cargo/env"
