@@ -143,3 +143,7 @@ if (( $+commands[direnv] )); then eval "$(direnv hook zsh)"; fi
 
 # useful for debugging load time
 # echo "$SECONDS seconds to load"
+
+export PATH="$PATH:/Users/stephen/.foundry/bin"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
