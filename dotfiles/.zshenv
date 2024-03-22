@@ -1,5 +1,12 @@
 # Paths for prepending
-for dir in /usr/local/bin "$HOME/bin" .git/bin .git/safe/../../bin "$HOME/.rvm/bin"; do
+for dir in /usr/local/bin \
+  "$HOME/.local/bin" \
+  "$HOME/bin" \
+  "$HOME/.ebcli-virtual-env/executables" \
+  /usr/local/go/bin \
+  "$HOME/.foundry/bin" \
+  "$HOME/.yarn/bin" \
+  "$HOME/.config/yarn/global/node_modules/.bin"; do
   case "$PATH:" in
     *:"$dir":*) PATH="`echo "$PATH"|sed -e "s#:$dir##"`" ;;
   esac

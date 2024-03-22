@@ -3,7 +3,6 @@
 
 fpath=(
   $fpath
-  ~/.rvm/scripts/zsh/Completion
   ~/.zsh/functions
   /usr/local/share/zsh/site-functions
 )
@@ -13,12 +12,13 @@ source "$HOME/.sharedrc"
 # color term
 export CLICOLOR=1
 export LSCOLORS=Dxfxcxdxbxegedabadacad
-export ZLS_COLORS=$LSCOLORS
+export ZLSCOLORS=$LSCOLORS
 export LC_CTYPE=en_US.UTF-8
 export LESS=FRX
 # make with the full color spectrum
 export TERM=xterm-256color
 
+zstyle ':completion:*' list-colors 'di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
 # make with the nice completion
 autoload -U compinit; compinit
@@ -97,10 +97,13 @@ export PAGER='less'
 export EDITOR="$VISUAL"
 
 # aliases
-alias mv='nocorrect mv'       # no spelling correction on mv
+
+# no spelling correction
+alias mv='nocorrect mv'
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
-alias rspec='nocorrect rspec'
+
+alias ls="ls --color=auto"
 alias ll="ls -l"
 alias la="ls -a"
 alias l.='ls -ld .[^.]*'
@@ -118,25 +121,12 @@ alias gco='git checkout'
 # set cd autocompletion to commonly visited directories
 cdpath=(~ ~/src "$HOME/dev")
 
-# rvm-install added line:
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
-
 # make with the colorful grepping
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='00;38;5;226'
 
-export GOBIN='/usr/local/go/bin'
-
-export PATH="$PATH:$HOME/.rvm/bin:/usr/local/go/bin" # Add RVM and Go bin PATHs for scripting
-
 # Source local overrides if present:
 if [[ -f "$HOME/.zshrc.local" ]] ; then source "$HOME/.zshrc.local" ; fi
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/stephen/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stephen/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/stephen/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stephen/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Hook direnv if present
 if (( $+commands[direnv] )); then eval "$(direnv hook zsh)"; fi
